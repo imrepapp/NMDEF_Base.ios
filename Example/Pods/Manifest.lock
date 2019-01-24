@@ -1,0 +1,27 @@
+PODS:
+  - NAXTMobileDataEntityFramework (0.1.0)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - NAXTMobileDataEntityFramework (from `../`)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  NAXTMobileDataEntityFramework:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NAXTMobileDataEntityFramework: fd7086836d9bc385066e27eb7ffe727858f3fa09
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: a2f521227218e9a4d35c47e5823b8dcd0bd6cf13
+
+COCOAPODS: 1.6.0.beta.1
