@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = 'NAXTMobileDataEntityFramework'
+  s.name             = 'NMDEF.Base'
   s.version          = '0.1.0'
   s.summary          = 'Mobile Framework for NAXT 365'
 
@@ -10,11 +10,11 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://mobile-demo.xapt.com/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Papp Imre' => 'imre.papp@xapt.com' }
-  s.source           = { :git => 'https://xaptdev.visualstudio.com/CE%20Mobile/_git/nmdef.fwrk.ios', :tag => s.version.to_s }
+  s.source           = { :git => 'https://xaptdev.visualstudio.com/CE_Mobile/_git/nmdef.fwrk.ios', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'NAXTMobileDataEntityFramework/Classes/**/*'
+  s.source_files = 'NMDEF.Base/Classes/**/*'
   
   # s.resource_bundles = {
   #   'NAXTMobileDataEntityFramework' => ['NAXTMobileDataEntityFramework/Assets/*.png']
