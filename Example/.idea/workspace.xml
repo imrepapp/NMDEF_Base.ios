@@ -2,113 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e6ba7ac-ed74-4759-bf58-a7d8177e9203" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework.xcodeproj/xcshareddata/xcschemes/NAXTMobileDataEntityFramework-Example.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework/Base.lproj/LaunchScreen.xib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAXTMobileDataEntityFramework/ViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Local Podspecs/NAXTMobileDataEntityFramework.podspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Carthage/Checkouts/CwlCatchException/Sources/CwlCatchException/CwlCatchException.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Carthage/Checkouts/CwlCatchException/Sources/CwlCatchException/CwlCatchException.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstruction.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstruction.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Mach/CwlPreconditionTesting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Mach/CwlPreconditionTesting.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/AssertionRecorder.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/AssertionRecorder.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NMBExpectation.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NMBExpectation.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NMBObjCMatcher.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NMBObjCMatcher.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NimbleEnvironment.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NimbleEnvironment.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NimbleXCTestHandler.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Adapters/NimbleXCTestHandler.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/DSL+Wait.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/DSL+Wait.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Expectation.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Expectation.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/ExpectationMessage.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/ExpectationMessage.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/AllPass.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/AllPass.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/AsyncMatcherWrapper.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeAKindOf.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeAKindOf.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeAnInstanceOf.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeAnInstanceOf.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeCloseTo.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeCloseTo.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeEmpty.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeEmpty.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeGreaterThan.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeGreaterThan.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeGreaterThanOrEqualTo.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeGreaterThanOrEqualTo.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeIdenticalTo.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeIdenticalTo.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeLessThan.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeLessThan.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeLessThanOrEqual.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeLessThanOrEqual.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeLogical.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeLogical.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeNil.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeNil.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeVoid.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeVoid.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeginWith.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/BeginWith.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Contain.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Contain.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/ContainElementSatisfying.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/ContainElementSatisfying.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/EndWith.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/EndWith.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Equal.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Equal.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/HaveCount.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/HaveCount.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Match.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Match.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/MatchError.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/MatchError.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/MatcherProtocols.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/MatcherProtocols.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/PostNotification.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/PostNotification.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Predicate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/Predicate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/RaisesException.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/RaisesException.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/SatisfyAnyOf.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/SatisfyAnyOf.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/ThrowAssertion.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/ThrowAssertion.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/ThrowError.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Matchers/ThrowError.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Utils/Async.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Utils/Stringers.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/Nimble/Utils/Stringers.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/CurrentTestCaseTracker.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/DSL.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/DSL.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/DSL.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/DSL.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/NMBExceptionCapture.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/NMBExceptionCapture.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/NMBStringify.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/NMBStringify.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/XCTestObservationCenter+Register.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Nimble/Sources/NimbleObjectiveC/XCTestObservationCenter+Register.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/Behavior.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/Behavior.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/DSL/World+DSL.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/DSL/World+DSL.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/Example.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/Example.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/NSString+C99ExtendedIdentifier.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/NSString+C99ExtendedIdentifier.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/World.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/Quick/World.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/Configuration/QuickConfiguration.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/Configuration/QuickConfiguration.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/DSL/QCKDSL.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/DSL/QCKDSL.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/DSL/World+DSL.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/QuickSpec.h" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/QuickSpec.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/QuickSpec.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/QuickSpec.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/World.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/XCTestSuite+QuickTestSuiteBuilder.m" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Quick/Sources/QuickObjectiveC/XCTestSuite+QuickTestSuiteBuilder.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/NAXTMobileDataEntityFramework/NAXTMobileDataEntityFramework-Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/NAXTMobileDataEntityFramework/NAXTMobileDataEntityFramework-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/NAXTMobileDataEntityFramework/NAXTMobileDataEntityFramework-prefix.pch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/NAXTMobileDataEntityFramework/NAXTMobileDataEntityFramework-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/NAXTMobileDataEntityFramework/NAXTMobileDataEntityFramework.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/NAXTMobileDataEntityFramework/NAXTMobileDataEntityFramework.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Nimble/Nimble-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Nimble/Nimble-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Nimble/Nimble.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Nimble/Nimble.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example-Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example-acknowledgements.markdown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example-acknowledgements.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example-frameworks.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example.debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Example/Pods-NAXTMobileDataEntityFramework_Example.release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests-Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests-acknowledgements.markdown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests-acknowledgements.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests-frameworks.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests.debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NAXTMobileDataEntityFramework_Tests/Pods-NAXTMobileDataEntityFramework_Tests.release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Quick/Quick-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Quick/Quick-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Quick/Quick.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Quick/Quick.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Tests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Tests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/FlowWithNavigationRoot.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/FlowWithNavigationRoot.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NMDEF.Base/Flows/MainFlow.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NMDEF.Base/Flows/Steps.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NMDEF.Base/UI/Launch.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NMDEF.Base/ViewModels/MenuViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NMDEF.Base/Views/MenuViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NMDEF.Base.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NMDEF.Base/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NMDEF.Base/Base.lproj/LaunchScreen.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NMDEF.Base/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base/UI/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NMDEF.Base/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base/UI/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NMDEF.Base/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NMDEF.Base/ViewController.swift" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,26 +22,35 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_06FEC0B8-6E46-4EA7-AC85-57A2AF8E8905" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_7177B6E6-6349-4715-9FDD-FF0CA68220AB" />
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tests/Tests.swift">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NMDEF.Base/AppDelegate.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+            <state relative-caret-position="272">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
-                <element signature="e#35#47#0" expanded="true" />
+                <element signature="e#142#154#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Podfile">
+        <entry file="file://$PROJECT_DIR$/NMDEF.Base/ViewModels/MenuViewModel.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="128">
+              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NMDEF.Base/Views/MenuViewController.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -155,11 +70,17 @@
       <list>
         <option value="$PROJECT_DIR$/Podfile" />
         <option value="$PROJECT_DIR$/Tests/Tests.swift" />
+        <option value="$PROJECT_DIR$/NMDEF.Base/AppDelegate.swift" />
+        <option value="$PROJECT_DIR$/NMDEF.Base/Flows/Steps.swift" />
+        <option value="$PROJECT_DIR$/NMDEF.Base/Flows/MainFlow.swift" />
+        <option value="$PROJECT_DIR$/NMDEF.Base/ViewModels/MenuViewModel.swift" />
+        <option value="$PROJECT_DIR$/NMDEF.Base/Views/MenuViewController.swift" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="628" />
+    <option name="y" value="128" />
     <option name="width" value="1680" />
     <option name="height" value="981" />
   </component>
@@ -176,15 +97,33 @@
               <item name="" type="efc3779f:XcodeRootNode" />
               <item name="NMDEF.Base" type="1d218c8b:XcodeProjectNode" />
             </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="NMDEF.Base" type="1d218c8b:XcodeProjectNode" />
+              <item name="Example for NMDEF.Base" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="NMDEF.Base" type="1d218c8b:XcodeProjectNode" />
+              <item name="Example for NMDEF.Base" type="fcab9f18:XcodeViewNode" />
+              <item name="ViewModels" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="NMDEF.Base" type="1d218c8b:XcodeProjectNode" />
+              <item name="Example for NMDEF.Base" type="fcab9f18:XcodeViewNode" />
+              <item name="Views" type="fcab9f18:XcodeViewNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="NMDEF.Base_Example" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -213,24 +152,24 @@
       <updated>1550068033853</updated>
       <workItem from="1550068037622" duration="8000" />
       <workItem from="1550068062762" duration="1379000" />
+      <workItem from="1550072386129" duration="2124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1387000" />
+    <option name="totallyTimeSpent" value="3511000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="981" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="981" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.48368955" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3295838" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3295838" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -239,6 +178,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.48368955" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -267,13 +207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Podfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/Tests.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -281,6 +214,64 @@
           <folding>
             <element signature="e#35#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/Flows/Steps.m">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/Flows/Steps.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/Flows/Steps.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/Flows/MainFlow.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#99#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#142#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/ViewModels/MenuViewModel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/Views/MenuViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
         </state>
       </provider>
     </entry>
