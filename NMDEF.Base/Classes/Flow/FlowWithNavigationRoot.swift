@@ -52,6 +52,9 @@ public extension FlowWithNavigationRoot where Self: BaseFlow {
 public extension FlowWithNavigationRoot where Self: BaseFlow & StoryboardSceneBased {
     func create() -> UINavigationController {
         let navigationController = Self.sceneStoryboard.instantiateViewController(withIdentifier: Self.sceneIdentifier) as! UINavigationController
+        if (navigationController.viewControllers.count > 0) {
+            print("WARNING: \(Self.sceneIdentifier) has relationship segue, first view controller will be initialized twice.")
+        }
         let vc = UIViewController()
         vc.view.backgroundColor = UIColor.white
         navigationController.viewControllers = [vc]

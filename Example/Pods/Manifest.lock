@@ -1,27 +1,82 @@
 PODS:
-  - NAXTMobileDataEntityFramework (0.1.0)
-  - Nimble (7.0.3)
-  - Quick (1.2.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - iOSSnapshotTestCase (5.0.2):
+    - iOSSnapshotTestCase/SwiftSupport (= 5.0.2)
+  - iOSSnapshotTestCase/Core (5.0.2)
+  - iOSSnapshotTestCase/SwiftSupport (5.0.2):
+    - iOSSnapshotTestCase/Core
+  - Nimble (7.3.3)
+  - Nimble-Snapshots (6.9.1):
+    - Nimble-Snapshots/Core (= 6.9.1)
+  - Nimble-Snapshots/Core (6.9.1):
+    - iOSSnapshotTestCase (~> 5.0)
+    - Nimble (~> 7.0)
+  - NMDEF.Base (0.1.0):
+    - Reusable (~> 4.0)
+    - RxCocoa (~> 4.4)
+    - RxFlow (~> 1.6)
+    - RxViewController (~> 0.4)
+  - Quick (1.3.4)
+  - Reusable (4.0.5):
+    - Reusable/Storyboard (= 4.0.5)
+    - Reusable/View (= 4.0.5)
+  - Reusable/Storyboard (4.0.5)
+  - Reusable/View (4.0.5)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxFlow (1.6.2):
+    - RxCocoa (>= 4.3.0)
+    - RxSwift (>= 4.3.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxViewController (0.4.0):
+    - RxCocoa (>= 4.0.0)
+    - RxSwift (>= 4.0.0)
 
 DEPENDENCIES:
-  - NAXTMobileDataEntityFramework (from `../`)
-  - Nimble (~> 7.0.2)
-  - Quick (~> 1.2.0)
+  - FBSnapshotTestCase (~> 2.1.0)
+  - Nimble (~> 7.3.0)
+  - Nimble-Snapshots (~> 6.9.0)
+  - NMDEF.Base (from `../`)
+  - Quick (~> 1.3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FBSnapshotTestCase
+    - iOSSnapshotTestCase
     - Nimble
+    - Nimble-Snapshots
     - Quick
+    - Reusable
+    - RxAtomic
+    - RxCocoa
+    - RxFlow
+    - RxSwift
+    - RxViewController
 
 EXTERNAL SOURCES:
-  NAXTMobileDataEntityFramework:
+  NMDEF.Base:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NAXTMobileDataEntityFramework: fd7086836d9bc385066e27eb7ffe727858f3fa09
-  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  iOSSnapshotTestCase: 2d51aa06775e95cecb0a1fb9c5c159ccd1dd4596
+  Nimble: 3b434b1e7d0a92603a13550a82880b0d952f518e
+  Nimble-Snapshots: bbd1ab264bacc24a9ce24a8363bc05aac783aeb0
+  NMDEF.Base: 1de424a28d29877b53529d9ca64203f3b80d1676
+  Quick: f4f7f063c524394c73ed93ac70983c609805d481
+  Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxFlow: 2460b8f1d546a7536d3b259536357301030a4140
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxViewController: 359bbc2fda373a78605b2735afb0f9f4f3f6c3e4
 
-PODFILE CHECKSUM: a2f521227218e9a4d35c47e5823b8dcd0bd6cf13
+PODFILE CHECKSUM: 5805892e045abaad9e760af6fb1727282b417eeb
 
 COCOAPODS: 1.6.0.beta.1

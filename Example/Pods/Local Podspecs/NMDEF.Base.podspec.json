@@ -1,0 +1,37 @@
+{
+  "name": "NMDEF.Base",
+  "version": "0.1.0",
+  "summary": "Mobile Framework for NAXT 365",
+  "description": "Swift SDK for framework of XAPT Kft. Microsoft Dynamics Finance and Operations product.",
+  "homepage": "https://mobile-demo.xapt.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Papp Imre": "imre.papp@xapt.com"
+  },
+  "source": {
+    "git": "https://xaptdev.visualstudio.com/CE_Mobile/_git/nmdef.fwrk.ios",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "4.0",
+  "source_files": "NMDEF.Base/Classes/**/*",
+  "dependencies": {
+    "RxViewController": [
+      "~>0.4"
+    ],
+    "RxFlow": [
+      "~>1.6"
+    ],
+    "RxCocoa": [
+      "~>4.4"
+    ],
+    "Reusable": [
+      "~>4.0"
+    ]
+  }
+}
