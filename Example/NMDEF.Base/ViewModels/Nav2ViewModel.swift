@@ -1,13 +1,13 @@
 //
-// Created by Papp Imre on 2019-02-13.
+// Created by Papp Imre on 2019-02-14.
 // Copyright (c) 2019 CocoaPods. All rights reserved.
 //
 
 import NMDEF_Base
 
-class MenuViewModel: BaseViewModel {
+class Nav2ViewModel: BaseViewModel {
     required init() {
         super.init()
-        title.val = "Menu"
+        title.val = "Nav2"
     }
 }

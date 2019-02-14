@@ -8,4 +8,14 @@ import RxFlow
 enum AppStep: Step {
     //Global
     case menu
+    case dismiss
+
+    //NavigationFlow
+    case navigationExample
+    case nav1
+    case nav2
+
+    //TabBarFlow
+    case tabbarExample
+    case tab1
 }

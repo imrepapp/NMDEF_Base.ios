@@ -4,7 +4,6 @@
 //
 
 import UIKit
-import Foundation
 import RxFlow
 import Reusable
 
@@ -21,10 +20,6 @@ public extension FlowWithNavigationRoot where Self: BaseFlow {
 
     func create() -> UINavigationController {
         return UINavigationController()
-    }
-
-    func instantiate(_ rootFlowItem: NextFlowItem) -> NextFlowItems {
-        return .one(flowItem: rootFlowItem)
     }
 
     public var rootViewController: UINavigationController {

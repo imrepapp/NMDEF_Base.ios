@@ -10,8 +10,6 @@ import RxFlow
 import Reusable
 
 open class BaseFlow {
-    public static var store = [String: [String: Any]]()
-
     func presentModal(_ parent: UIViewController, _ child: UIViewController,
                       animated: Bool, transition: UIModalTransitionStyle, presentation: UIModalPresentationStyle) {
         child.modalTransitionStyle = transition
@@ -40,6 +38,10 @@ public protocol HasRootController: Instantiateable {
 }
 
 public extension HasRootController where Self: BaseFlow {
+    func instantiate(_ rootFlowItem: NextFlowItem) -> NextFlowItems {
+        return .one(flowItem: rootFlowItem)
+    }
+
     func start(flow: Flow & Instantiateable, step: Step,
                animated: Bool = true, transition: UIModalTransitionStyle = .coverVertical, presentation: UIModalPresentationStyle = .fullScreen
     ) -> NextFlowItems {

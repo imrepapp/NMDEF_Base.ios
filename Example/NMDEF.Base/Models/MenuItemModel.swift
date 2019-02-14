@@ -3,7 +3,9 @@
 // Copyright (c) 2019 CocoaPods. All rights reserved.
 //
 
-import Foundation
+import NMDEF_Base
 
-class MenuItemModel {
+struct MenuItemModel: BaseModel {
+    var id: Menu
+    var name: String
 }

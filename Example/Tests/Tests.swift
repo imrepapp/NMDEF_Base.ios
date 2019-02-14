@@ -2,7 +2,7 @@
 
 import Quick
 import Nimble
-//import NMDEF.Base
+import NMDEF_Base
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {

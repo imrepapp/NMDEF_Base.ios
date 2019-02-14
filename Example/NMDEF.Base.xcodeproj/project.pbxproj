@@ -11,13 +11,22 @@
 		3412EF732214796E007107B0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3412EF722214796E007107B0 /* Launch.storyboard */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		658121FD0E40C14725DD0156 /* Nav2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658121BC4C126D3D427CF9D9 /* Nav2ViewController.swift */; };
+		658123F287EA3B91C2254F29 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812560020C1AC880C66D92 /* Menu.swift */; };
+		6581246DBF5563E81CE94F1D /* TabBarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658129BFE53AC3748E4ADAD3 /* TabBarFlow.swift */; };
+		6581252F16F77351850018DD /* Nav1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812E91E6D4FF2879B85577 /* Nav1ViewModel.swift */; };
+		658127DD0C63D4C03F40DCC5 /* MenuItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812B5D84FF52E375F6B9DF /* MenuItemViewModel.swift */; };
 		6581293257A023F7173B5BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658121342D99FB4F44CC3711 /* Main.storyboard */; };
 		65812A130CDDC5037E784640 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658121AFD13D65AF07D6DA11 /* MainFlow.swift */; };
+		65812B0F83F7B1ED96B6555D /* Nav1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658126AAD5ACE3F98D2EF16D /* Nav1ViewController.swift */; };
+		65812C3E422967A259B9BF02 /* Nav2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658124D09D90CA138480E23C /* Nav2ViewModel.swift */; };
 		65812C4C010B383CC90B3837 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6581264CF11F9FAE5316C3E4 /* Images.xcassets */; };
 		65812CE46F030D191B1B4E91 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658124B7DF5142800FA2C91B /* Steps.swift */; };
+		65812E4935BED3E69722C184 /* NavigationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812488899C1CB699C42FE5 /* NavigationFlow.swift */; };
 		65812F341101F44A0BA76520 /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812323CD89ED9E2EE9BB87 /* MenuItemModel.swift */; };
-		65812F4BD3C9836A9FDC5700 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658125693418ABE0E49E9F8E /* MenuViewModel.swift */; };
-		65812F8124360B9FDE7A9325 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812C8F9E1CD5560FD67B79 /* MenuViewController.swift */; };
+		65812F4BD3C9836A9FDC5700 /* MenuListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658125693418ABE0E49E9F8E /* MenuListViewModel.swift */; };
+		65812F642B99644049D75B48 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658120B90AD6C1AAF4683045 /* MenuItemTableViewCell.swift */; };
+		65812F8124360B9FDE7A9325 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812C8F9E1CD5560FD67B79 /* MenuListViewController.swift */; };
 		780B39DACF43E8676198CBC5 /* Pods_NMDEF_Base_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC55F56214E1FF8B4AAEED1 /* Pods_NMDEF_Base_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,14 +51,23 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		62C27D629876CC401B1E396E /* Pods-NMDEF.Base_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF.Base_Example.debug.xcconfig"; path = "Target Support Files/Pods-NMDEF.Base_Example/Pods-NMDEF.Base_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		658120B90AD6C1AAF4683045 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		658121342D99FB4F44CC3711 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		658121AFD13D65AF07D6DA11 /* MainFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
+		658121BC4C126D3D427CF9D9 /* Nav2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav2ViewController.swift; sourceTree = "<group>"; };
 		65812323CD89ED9E2EE9BB87 /* MenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
+		65812488899C1CB699C42FE5 /* NavigationFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlow.swift; sourceTree = "<group>"; };
 		658124B7DF5142800FA2C91B /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
-		658125693418ABE0E49E9F8E /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		658124D09D90CA138480E23C /* Nav2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav2ViewModel.swift; sourceTree = "<group>"; };
+		65812560020C1AC880C66D92 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		658125693418ABE0E49E9F8E /* MenuListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewModel.swift; sourceTree = "<group>"; };
 		65812642FF38F88D021D288A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6581264CF11F9FAE5316C3E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		65812C8F9E1CD5560FD67B79 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		658126AAD5ACE3F98D2EF16D /* Nav1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav1ViewController.swift; sourceTree = "<group>"; };
+		658129BFE53AC3748E4ADAD3 /* TabBarFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarFlow.swift; sourceTree = "<group>"; };
+		65812B5D84FF52E375F6B9DF /* MenuItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewModel.swift; sourceTree = "<group>"; };
+		65812C8F9E1CD5560FD67B79 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
+		65812E91E6D4FF2879B85577 /* Nav1ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav1ViewModel.swift; sourceTree = "<group>"; };
 		96C4BEEC7B06DF466FFF98E2 /* Pods-NMDEF.Base_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF.Base_Example.release.xcconfig"; path = "Target Support Files/Pods-NMDEF.Base_Example/Pods-NMDEF.Base_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D4534C3E66940BDA433EDA34 /* NMDEF.Base.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NMDEF.Base.podspec; path = ../NMDEF.Base.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D8122EE253F13C41C149BA75 /* Pods_NMDEF_Base_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NMDEF_Base_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,7 +191,10 @@
 		658129E4B1526FB4BBBCF00F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				65812C8F9E1CD5560FD67B79 /* MenuViewController.swift */,
+				65812C8F9E1CD5560FD67B79 /* MenuListViewController.swift */,
+				658120B90AD6C1AAF4683045 /* MenuItemTableViewCell.swift */,
+				658126AAD5ACE3F98D2EF16D /* Nav1ViewController.swift */,
+				658121BC4C126D3D427CF9D9 /* Nav2ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				65812323CD89ED9E2EE9BB87 /* MenuItemModel.swift */,
+				65812560020C1AC880C66D92 /* Menu.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +213,8 @@
 			children = (
 				658121AFD13D65AF07D6DA11 /* MainFlow.swift */,
 				658124B7DF5142800FA2C91B /* Steps.swift */,
+				658129BFE53AC3748E4ADAD3 /* TabBarFlow.swift */,
+				65812488899C1CB699C42FE5 /* NavigationFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -198,7 +222,10 @@
 		65812F6E6CC8E54FD56B821B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				658125693418ABE0E49E9F8E /* MenuViewModel.swift */,
+				658125693418ABE0E49E9F8E /* MenuListViewModel.swift */,
+				65812B5D84FF52E375F6B9DF /* MenuItemViewModel.swift */,
+				65812E91E6D4FF2879B85577 /* Nav1ViewModel.swift */,
+				658124D09D90CA138480E23C /* Nav2ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -423,9 +450,18 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				65812A130CDDC5037E784640 /* MainFlow.swift in Sources */,
 				65812CE46F030D191B1B4E91 /* Steps.swift in Sources */,
-				65812F8124360B9FDE7A9325 /* MenuViewController.swift in Sources */,
-				65812F4BD3C9836A9FDC5700 /* MenuViewModel.swift in Sources */,
+				65812F8124360B9FDE7A9325 /* MenuListViewController.swift in Sources */,
+				65812F4BD3C9836A9FDC5700 /* MenuListViewModel.swift in Sources */,
 				65812F341101F44A0BA76520 /* MenuItemModel.swift in Sources */,
+				65812F642B99644049D75B48 /* MenuItemTableViewCell.swift in Sources */,
+				658127DD0C63D4C03F40DCC5 /* MenuItemViewModel.swift in Sources */,
+				658123F287EA3B91C2254F29 /* Menu.swift in Sources */,
+				6581246DBF5563E81CE94F1D /* TabBarFlow.swift in Sources */,
+				65812E4935BED3E69722C184 /* NavigationFlow.swift in Sources */,
+				65812B0F83F7B1ED96B6555D /* Nav1ViewController.swift in Sources */,
+				6581252F16F77351850018DD /* Nav1ViewModel.swift in Sources */,
+				65812C3E422967A259B9BF02 /* Nav2ViewModel.swift in Sources */,
+				658121FD0E40C14725DD0156 /* Nav2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

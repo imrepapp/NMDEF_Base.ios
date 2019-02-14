@@ -4,7 +4,6 @@
 //
 
 import UIKit
-import Foundation
 import RxFlow
 import Reusable
 
@@ -15,62 +14,13 @@ public protocol FlowWithTabBarRoot: Flow, HasRootController where RootController
     var tabs: [Flow] { get }
 }
 
-/****/
-public enum TestStep: Step {
-    case tab1Initial
-    case tab2Initial
-}
-
-class TestViewModel : BaseViewModel {
-
-}
-
-class TestUIViewController: BaseViewController<TestViewModel> {
-
-}
-
-class Flow1: BaseFlow, FlowWithNavigationRoot {
-    func navigate(to step: Step) -> NextFlowItems {
-        guard let step = step as? TestStep else {
-            return .none
-        }
-
-        switch step {
-        case .tab1Initial: return pushNavigation(to: TestUIViewController.self)
-        default: return .none
-        }
-    }
-}
-
-class Flow2: BaseFlow, FlowWithNavigationRoot {
-    func navigate(to step: Step) -> NextFlowItems {
-        guard let step = step as? TestStep else {
-            return .none
-        }
-
-        switch step {
-        case .tab2Initial: return pushNavigation(to: TestUIViewController.self)
-        default: return .none
-        }
-    }
-}
-/*****/
-
 public extension FlowWithTabBarRoot where Self: BaseFlow {
-    var tabs: [Flow] {
-        return [Flow1(), Flow2()]
-    }
-
     var root: Presentable {
         return self.rootViewController
     }
 
     func create() -> UITabBarController {
         return UITabBarController()
-    }
-
-    func instantiate(_ rootFlowItem: NextFlowItem) -> NextFlowItems {
-        return .one(flowItem: rootFlowItem)
     }
 
     func lofasz() -> NextFlowItems {
@@ -83,8 +33,10 @@ public extension FlowWithTabBarRoot where Self: BaseFlow {
         })
 
         return .multiple(flowItems: [
+/*
             NextFlowItem(nextPresentable: tabs[0], nextStepper: OneStepper(withSingleStep: TestStep.tab1Initial)),
             NextFlowItem(nextPresentable: tabs[1], nextStepper: OneStepper(withSingleStep: TestStep.tab2Initial))
+*/
         ])
     }
 
