@@ -10,7 +10,6 @@ import Reusable
 private var navigationContext: UInt8 = 0
 
 public protocol FlowWithNavigationRoot: Flow, HasRootController where RootControllerType == UINavigationController {
-    func create() -> UINavigationController
 }
 
 public extension FlowWithNavigationRoot where Self: BaseFlow {
@@ -19,7 +18,9 @@ public extension FlowWithNavigationRoot where Self: BaseFlow {
     }
 
     func create() -> UINavigationController {
-        return UINavigationController()
+        let root = UINavigationController()
+        configure(view: root)
+        return root
     }
 
     public var rootViewController: UINavigationController {
@@ -53,6 +54,7 @@ public extension FlowWithNavigationRoot where Self: BaseFlow & StoryboardSceneBa
         let vc = UIViewController()
         vc.view.backgroundColor = UIColor.white
         navigationController.viewControllers = [vc]
+        configure(view: navigationController)
         return navigationController
     }
 }

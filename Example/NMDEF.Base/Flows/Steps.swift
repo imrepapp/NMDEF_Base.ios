@@ -18,4 +18,5 @@ enum AppStep: Step {
     //TabBarFlow
     case tabbarExample
     case tab1
+    case tab2
 }

@@ -14,6 +14,6 @@ class Nav1ViewController: BaseViewController<Nav1ViewModel> {
         rx.viewCouldBind += { _ in
             self.menuButton.rx.tap --> self.viewModel.menuCommand => self.disposeBag
             self.nextButton.rx.tap --> self.viewModel.nextCommand => self.disposeBag
-        }
+        } => self.disposeBag
     }
 }

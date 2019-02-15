@@ -7,55 +7,12 @@ import NMDEF_Base
 import RxFlow
 
 class TabBarFlow: BaseFlow, FlowWithTabBarRoot {
-    var tabs: [Flow] = []
+    typealias Tabs = ExampleTabs
 
-    func navigate(to step: Step) -> NextFlowItems {
-        guard let step = step as? AppStep else {
-            return .none
-        }
-        switch step {
-        default: return .none
-        }
+    var tabFlows: [TabFlow] {
+        return [
+            Tab1Flow(initialStep: AppStep.tab1),
+            Tab2Flow(initialStep: AppStep.tab2)
+        ]
     }
 }
-
-/*
-public enum TestStep: Step {
-    case tab1Initial
-    case tab2Initial
-}
-
-class TestViewModel : BaseViewModel {
-
-}
-
-class TestUIViewController: BaseViewController<TestViewModel> {
-
-}
-
-class Flow1: BaseFlow, FlowWithNavigationRoot {
-    func navigate(to step: Step) -> NextFlowItems {
-        guard let step = step as? TestStep else {
-            return .none
-        }
-
-        switch step {
-        case .tab1Initial: return pushNavigation(to: TestUIViewController.self)
-        default: return .none
-        }
-    }
-}
-
-class Flow2: BaseFlow, FlowWithNavigationRoot {
-    func navigate(to step: Step) -> NextFlowItems {
-        guard let step = step as? TestStep else {
-            return .none
-        }
-
-        switch step {
-        case .tab2Initial: return pushNavigation(to: TestUIViewController.self)
-        default: return .none
-        }
-    }
-}
-*/

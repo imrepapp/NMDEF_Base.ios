@@ -7,8 +7,14 @@ import RxFlow
 import NMDEF_Base
 import Reusable
 
-class MainFlow: BaseFlow, FlowWithSinglePageRoot {
+class MainFlow: BaseFlow<AppStep>, FlowWithSinglePageRoot {
     typealias RootControllerType = MenuListViewController
+
+    let steps: [AppStep: ()->] = [
+
+    ]
+
+
 
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else {
@@ -17,7 +23,7 @@ class MainFlow: BaseFlow, FlowWithSinglePageRoot {
         switch step {
         case .menu: return show()
         case .navigationExample: return start(flow: NavigationFlow(), step: AppStep.nav1)
-        case .tabbarExample: return start(flow: TabBarFlow(), step: AppStep.tab1)
+        case .tabbarExample: return start(flow: TabBarFlow(), step: AppStep.tab2)
         case .dismiss: return dismiss()
         default: return .none
         }
