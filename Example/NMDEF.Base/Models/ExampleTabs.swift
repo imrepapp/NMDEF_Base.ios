@@ -9,6 +9,7 @@ import NMDEF_Base
 class ExampleTabs: TabBarItems {
     static var items: [String: UITabBarItem] = [
         AppStep.tab1.toString(): UITabBarItem(title: "TabBar1", image: nil, selectedImage: nil),
-        AppStep.tab2.toString(): UITabBarItem(title: "TabBar2", image: nil, selectedImage: nil)
+        AppStep.tab2.toString(): UITabBarItem(title: "TabBar2", image: nil, selectedImage: nil),
+        AppStep.tab3.toString(): UITabBarItem(title: "TabBar3", image: nil, selectedImage: nil)
     ]
 }

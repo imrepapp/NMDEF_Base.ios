@@ -6,15 +6,15 @@
 import NMDEF_Base
 import RxCocoa
 
-class Tab2ViewModel: BaseViewModel {
-    let nextCommand = PublishRelay<Void>()
+class Tab3ViewModel: BaseViewModel {
+    let menuCommand = PublishRelay<Void>()
 
     required init() {
         super.init()
-        title.val = "Tab2"
+        title.val = "Tab3"
 
-        nextCommand += {
-            self.next(step: AppStep.tab2nav1)
+        menuCommand += {
+            self.next(step: AppStep.menu)
         } => self.disposeBag
     }
 }

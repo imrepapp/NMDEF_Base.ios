@@ -10,6 +10,10 @@ import Reusable
 private var tabBarContext: UInt8 = 0
 private var tabsContext: UInt8 = 0
 
+public struct TabBarDismissStep: Step {
+    public init() {}
+}
+
 public protocol FlowWithTabBarRoot: Flow, HasRootController where RootControllerType == UITabBarController {
     associatedtype Tabs: TabBarItems
     var tabFlows: [TabFlow] { get }
@@ -56,6 +60,10 @@ public extension FlowWithTabBarRoot where Self: BaseFlow {
     }
 
     func navigate(to step: Step) -> NextFlowItems {
+        if let step = step as? TabBarDismissStep {
+            self.rootViewController.dismiss(animated: true)
+            return .end(withStepForParentFlow: step)
+        }
         var selectedIndex = 0
         var nextFlowItems: [NextFlowItem] = []
 
@@ -87,6 +95,10 @@ public extension FlowWithTabBarRoot where Self: BaseFlow {
 }
 
 public extension FlowWithTabBarRoot where Self: BaseFlow & StoryboardSceneBased {
+    static var sceneStoryboard: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+
     func create() -> UITabBarController {
         initializeTabs()
         let tabBarController = Self.sceneStoryboard.instantiateViewController(withIdentifier: Self.sceneIdentifier) as! UITabBarController

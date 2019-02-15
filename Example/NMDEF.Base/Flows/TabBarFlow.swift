@@ -12,7 +12,8 @@ class TabBarFlow: BaseFlow, FlowWithTabBarRoot {
     var tabFlows: [TabFlow] {
         return [
             Tab1Flow(initialStep: AppStep.tab1),
-            Tab2Flow(initialStep: AppStep.tab2)
+            Tab2Flow(initialStep: AppStep.tab2),
+            Tab3Flow(initialStep: AppStep.tab3)
         ]
     }
 }

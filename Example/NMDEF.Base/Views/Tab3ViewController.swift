@@ -5,12 +5,12 @@
 
 import NMDEF_Base
 
-class Tab2ViewController: BaseViewController<Tab2ViewModel> {
-    @IBOutlet weak var nextButton: UIBarButtonItem!
+class Tab3ViewController: BaseViewController<Tab3ViewModel> {
+    @IBOutlet weak var menuButton: UIButton!
 
     override func initialize() {
         rx.viewCouldBind += { _ in
-            self.nextButton.rx.tap --> self.viewModel.nextCommand => self.disposeBag
+            self.menuButton.rx.tap --> self.viewModel.menuCommand => self.disposeBag
         } => self.disposeBag
     }
 }

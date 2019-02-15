@@ -4,11 +4,10 @@
 //
 
 import NMDEF_Base
-import RxCocoa
 
-class Tab1ViewModel: BaseViewModel {
+class Nav3ViewModel: BaseViewModel {
     required init() {
         super.init()
-        title.val = "Tab1"
+        title.val = "Nav3"
     }
 }
