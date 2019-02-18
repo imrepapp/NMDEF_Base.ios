@@ -5,21 +5,20 @@
 import Foundation
 
 class UserAuthContext {
-    var hcmWorker: CLong
+    var hcmWorker: CLong?
 
     var password: String
 
-    var selectedConfig: Configuration
+    var selectedConfig: Configuration?
 
     var userIdentifier: String
 
-    var dataAreaId: String
+    var dataAreaId: String?
 
-    var currentUserId: String
+    var currentUserId: String?
 
     init(userIdentifier: String, password: String) {
         self.userIdentifier = userIdentifier
         self.password = password
     }
-
 }

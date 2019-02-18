@@ -1,13 +1,20 @@
 //
-// Created by Róbert PAPP on 2019-02-18.
+//  AuthServices.swift
+//  Alamofire
+//
+//  Created by Róbert PAPP on 2019. 02. 18..
 //
 
-import Foundation
+import Moya
 
-class LoginService : TargetType {
-    var baseUrl: URL {
+enum AuthServices {
+    case login
+}
+
+extension AuthServices: TargetType {
+    public var baseURL: URL {
         //TODO: Get the baseUrl from settings
-        return URL(string: "https://api.com")
+        return URL(string: "https://api.com")!
     }
 
     var path: String {
@@ -29,17 +36,25 @@ class LoginService : TargetType {
         case .login:
             return .requestPlain
         }
+
     }
 
     var sampleData: Data {
         switch self {
-        case .login{
-            return "data".utf8
-        }
+        case .login:
+            return "data".utf8Encoded
         }
     }
 
     var headers: [String: String]? {
         return ["Content-type": "application/json"]
     }
+
 }
+
+private extension String {
+    var utf8Encoded : Data{
+        return data(using: .utf8)!
+    }
+}
+

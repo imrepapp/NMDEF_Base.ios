@@ -7,5 +7,4 @@ import Foundation
 protocol IUserAuthService {
 
     func Login(request: LoginRequest)
-
 }

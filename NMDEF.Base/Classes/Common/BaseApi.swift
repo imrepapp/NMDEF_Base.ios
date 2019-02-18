@@ -7,7 +7,7 @@ import Foundation
 class BaseApi : IBaseApi {
 
     func Login(request: LoginRequest){
-        let provider = MoyaProvider<LoginService>()
+        //let provider = MoyaProvider<LoginService>()
 
     }
 }
