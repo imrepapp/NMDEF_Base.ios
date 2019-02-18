@@ -27,4 +27,6 @@ Pod::Spec.new do |s|
   s.dependency 'RxFlow', '~>1.6'
   s.dependency 'RxCocoa', '~>4.4'
   s.dependency 'Reusable', '~>4.0'
+  s.dependency 'Moya' , '~> 12.0'
+  s.dependency 'Moya/RxSwift' , '~> 12.0'
 end
