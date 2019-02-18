@@ -5,7 +5,7 @@
 
 import NMDEF_Base
 
-class Nav2ViewController: BaseViewController<Nav2ViewModel> {
+class Tab1ViewController: BaseViewController<Tab1ViewModel> {
     override func initialize() {
         rx.viewCouldBind += { _ in
         } => self.disposeBag

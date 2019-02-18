@@ -17,7 +17,7 @@ class MainFlow: BaseFlow, FlowWithSinglePageRoot {
         switch step {
         case .menu: return show()
         case .navigationExample: return start(flow: NavigationFlow(), step: AppStep.nav1)
-        case .tabbarExample: return start(flow: TabBarFlow(), step: AppStep.tab1)
+        case .tabbarExample: return start(flow: TabBarFlow(), step: AppStep.tab2)
         case .dismiss: return dismiss()
         default: return .none
         }

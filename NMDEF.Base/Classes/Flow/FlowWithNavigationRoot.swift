@@ -10,7 +10,6 @@ import Reusable
 private var navigationContext: UInt8 = 0
 
 public protocol FlowWithNavigationRoot: Flow, HasRootController where RootControllerType == UINavigationController {
-    func create() -> UINavigationController
 }
 
 public extension FlowWithNavigationRoot where Self: BaseFlow {
@@ -19,7 +18,9 @@ public extension FlowWithNavigationRoot where Self: BaseFlow {
     }
 
     func create() -> UINavigationController {
-        return UINavigationController()
+        let root = UINavigationController()
+        configure(view: root)
+        return root
     }
 
     public var rootViewController: UINavigationController {
@@ -45,14 +46,17 @@ public extension FlowWithNavigationRoot where Self: BaseFlow {
 }
 
 public extension FlowWithNavigationRoot where Self: BaseFlow & StoryboardSceneBased {
+    static var sceneStoryboard: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+
     func create() -> UINavigationController {
         let navigationController = Self.sceneStoryboard.instantiateViewController(withIdentifier: Self.sceneIdentifier) as! UINavigationController
         if (navigationController.viewControllers.count > 0) {
             print("WARNING: \(Self.sceneIdentifier) has relationship segue, first view controller will be initialized twice.")
+            navigationController.viewControllers = []
         }
-        let vc = UIViewController()
-        vc.view.backgroundColor = UIColor.white
-        navigationController.viewControllers = [vc]
+        configure(view: navigationController)
         return navigationController
     }
 }

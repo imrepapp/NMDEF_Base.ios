@@ -6,6 +6,9 @@
 //  Copyright © 2019. XAPT Kft. All rights reserved.
 //
 
+
+//print("\(type(of: self)).\(#function)")
+
 import UIKit
 import RxSwift
 import RxFlow
@@ -35,7 +38,7 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate, HasDisposeBag {
         #if DEBUG
         // listening for the coordination mechanism is not mandatory, but can be useful
         self.coordinator.rx.didNavigate += { (flow, step) in
-            print("NMDEF: navigate to \(flow).\(step)")
+            print("NMDEF: navigate to \(type(of: flow)).\(step)")
         } => self.disposeBag
         #endif
 

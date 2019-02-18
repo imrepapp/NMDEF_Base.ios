@@ -28,28 +28,19 @@ open class BaseFlow {
     }
 }
 
-public protocol Instantiateable {
-    func instantiate(_ rootFlowItem: NextFlowItem) -> NextFlowItems
-}
-
-public protocol HasRootController: Instantiateable {
-    associatedtype RootControllerType: UIViewController
-    var rootViewController: RootControllerType { get }
-}
-
 public extension HasRootController where Self: BaseFlow {
-    func instantiate(_ rootFlowItem: NextFlowItem) -> NextFlowItems {
-        return .one(flowItem: rootFlowItem)
+    func configure(view vc: RootControllerType) {
+        //add your own configure method to the flow class with extension
     }
 
-    func start(flow: Flow & Instantiateable, step: Step,
+    func start(flow: Flow, step: Step,
                animated: Bool = true, transition: UIModalTransitionStyle = .coverVertical, presentation: UIModalPresentationStyle = .fullScreen
     ) -> NextFlowItems {
-        Flows.whenReady(flow1: flow, block: { [unowned self] (root) in
-            self.presentModal(self.rootViewController, root, animated: animated, transition: transition, presentation: presentation)
+        Flows.whenReady(flow1: flow, block: { [unowned self] (newViewController) in
+            self.presentModal(self.rootViewController, newViewController, animated: animated, transition: transition, presentation: presentation)
         })
 
-        return flow.instantiate(NextFlowItem(nextPresentable: flow, nextStepper: OneStepper(withSingleStep: step)))
+        return .one(flowItem: NextFlowItem(nextPresentable: flow, nextStepper: OneStepper(withSingleStep: step)))
     }
 
     func modalNavigation<TViewController>(

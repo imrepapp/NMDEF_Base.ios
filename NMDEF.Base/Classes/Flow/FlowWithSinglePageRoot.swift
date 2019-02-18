@@ -8,7 +8,6 @@ import RxFlow
 private var singlePageContext: UInt8 = 0
 
 public protocol FlowWithSinglePageRoot: Flow, HasRootController where RootControllerType: BaseViewControllerProtocol {
-    func create() -> RootControllerType
 }
 
 public extension FlowWithSinglePageRoot where Self: BaseFlow, RootControllerType.TViewModel: Stepper {
@@ -17,7 +16,9 @@ public extension FlowWithSinglePageRoot where Self: BaseFlow, RootControllerType
     }
 
     func create() -> RootControllerType {
-        return RootControllerType.instantiate()
+        let root = RootControllerType.instantiate()
+        configure(view: root)
+        return root
     }
 
     var rootViewController: RootControllerType {
@@ -32,6 +33,6 @@ public extension FlowWithSinglePageRoot where Self: BaseFlow, RootControllerType
     }
 
     func show() -> NextFlowItems {
-        return self.instantiate(NextFlowItem(nextPresentable: self.rootViewController, nextStepper: self.rootViewController.viewModel))
+        return .one(flowItem: NextFlowItem(nextPresentable: self.rootViewController, nextStepper: self.rootViewController.viewModel))
     }
 }
