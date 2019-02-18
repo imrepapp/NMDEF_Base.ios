@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol IUserAuthService {
+protocol UserAuthServiceProtocol {
 
     func Login(request: LoginRequest)
 }

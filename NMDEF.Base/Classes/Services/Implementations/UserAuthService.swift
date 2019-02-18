@@ -2,12 +2,20 @@
 // Created by Róbert PAPP on 2019-02-18.
 //
 
-import Foundation
+import Moya
 
-class UserAuthService: IUserAuthService {
+class UserAuthService: UserAuthServiceProtocol {
 
-    func Login(request: LoginRequest){
-        
+    var Context: UserAuthContext?
+
+    init(){
+
+    }
+
+    func Login(request: LoginRequest) {
+        Context = UserAuthContext(userIdentifier: request.email, password: request.password)
+
+        var provider = MoyaProvider<AuthServices>()
     }
 
 }
