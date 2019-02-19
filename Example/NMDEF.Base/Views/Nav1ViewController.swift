@@ -9,11 +9,14 @@ import UIKit
 class Nav1ViewController: BaseViewController<Nav1ViewModel> {
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var loginButtonOutlet: UIButton!
     
     override func initialize() {
         rx.viewCouldBind += { _ in
             self.menuButton.rx.tap --> self.viewModel.menuCommand => self.disposeBag
             self.nextButton.rx.tap --> self.viewModel.nextCommand => self.disposeBag
+            self.loginButtonOutlet.rx.tap --> self.viewModel.loginCommand => self.disposeBag
+            
         } => self.disposeBag
     }
 }

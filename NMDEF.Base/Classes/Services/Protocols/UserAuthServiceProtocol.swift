@@ -4,7 +4,7 @@
 
 import Moya
 
-protocol UserAuthServiceProtocol {
+public protocol UserAuthServiceProtocol {
 
     var provider: MoyaProvider<AuthServices> { get }
 

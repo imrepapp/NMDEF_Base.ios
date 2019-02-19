@@ -9,8 +9,12 @@ import RxCocoa
 class Nav1ViewModel: BaseViewModel {
     let menuCommand = PublishRelay<Void>()
     let nextCommand = PublishRelay<Void>()
+    let loginCommand = PublishRelay<Void>()
 
     required init() {
+
+        let userAuthService = UserAuthService()
+
         super.init()
         title.val = "Nav1"
 
@@ -19,6 +23,12 @@ class Nav1ViewModel: BaseViewModel {
         } => self.disposeBag
 
         menuCommand += {
+            self.next(step: AppStep.menu)
+        } => self.disposeBag
+        
+        loginCommand += {
+            userAuthService.Login(request: LoginRequest(email: "email", password: "pw"))
+
             self.next(step: AppStep.menu)
         } => self.disposeBag
     }

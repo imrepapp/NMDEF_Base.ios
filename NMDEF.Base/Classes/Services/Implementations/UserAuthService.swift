@@ -4,17 +4,16 @@
 
 import Moya
 
-class UserAuthService: UserAuthServiceProtocol {
+public class UserAuthService: UserAuthServiceProtocol {
 
     var Context: UserAuthContext?
 
-    var provider = MoyaProvider<AuthServices>()
+    public var provider = MoyaProvider<AuthServices>()
 
-    init() {
-
+    public init() {
     }
 
-    func Login(request: LoginRequest) {
+    public func Login(request: LoginRequest) {
         Context = UserAuthContext(userIdentifier: request.email, password: request.password)
 
         provider.rx.request(.login).subscribe { event in

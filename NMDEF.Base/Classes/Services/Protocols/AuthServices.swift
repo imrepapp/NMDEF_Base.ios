@@ -5,6 +5,6 @@
 //  Created by Róbert PAPP on 2019. 02. 18..
 //
 
-enum AuthServices {
+public enum AuthServices {
     case login
 }

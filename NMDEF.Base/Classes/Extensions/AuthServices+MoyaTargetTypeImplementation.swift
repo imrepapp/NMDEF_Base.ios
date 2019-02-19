@@ -10,21 +10,21 @@ extension AuthServices: TargetType {
         return URL(string: "https://api.com")!
     }
 
-    var path: String {
+    public var path: String {
         switch self {
         case .login:
             return "/api/users"
         }
     }
 
-    var method: Moya.Method {
+    public var method: Moya.Method {
         switch self {
         case .login:
             return .post
         }
     }
 
-    var task: Task {
+    public var task: Task {
         switch self {
         case .login:
             return .requestPlain
@@ -32,14 +32,14 @@ extension AuthServices: TargetType {
 
     }
 
-    var sampleData: Data {
+    public var sampleData: Data {
         switch self {
         case .login:
             return "data".utf8Encoded
         }
     }
 
-    var headers: [String: String]? {
+    public var headers: [String: String]? {
         return ["Content-type": "application/json"]
     }
 }
