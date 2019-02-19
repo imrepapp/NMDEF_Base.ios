@@ -8,14 +8,22 @@ class UserAuthService: UserAuthServiceProtocol {
 
     var Context: UserAuthContext?
 
-    init(){
+    var provider = MoyaProvider<AuthServices>()
+
+    init() {
 
     }
 
     func Login(request: LoginRequest) {
         Context = UserAuthContext(userIdentifier: request.email, password: request.password)
 
-        var provider = MoyaProvider<AuthServices>()
+        provider.rx.request(.login).subscribe { event in
+            switch event {
+            case let .success(response):
+                let result = response.data
+            case let .error(error):
+                print(error)
+            }
+        }
     }
-
 }

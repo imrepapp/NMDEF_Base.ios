@@ -32,6 +32,8 @@ PODS:
     - RxFlow (~> 1.6)
     - RxViewController (~> 0.4)
   - Quick (1.3.4)
+  - ReactiveSwift (4.0.0):
+    - Result (~> 4.0)
   - Result (4.1.0)
   - Reusable (4.0.5):
     - Reusable/Storyboard (= 4.0.5)
@@ -58,6 +60,7 @@ DEPENDENCIES:
   - Nimble-Snapshots (~> 6.9.0)
   - NMDEF.Base (from `../`)
   - Quick (~> 1.3.0)
+  - ReactiveSwift (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -68,6 +71,7 @@ SPEC REPOS:
     - Nimble
     - Nimble-Snapshots
     - Quick
+    - ReactiveSwift
     - Result
     - Reusable
     - RxAtomic
@@ -89,6 +93,7 @@ SPEC CHECKSUMS:
   Nimble-Snapshots: bbd1ab264bacc24a9ce24a8363bc05aac783aeb0
   NMDEF.Base: 45ba380d6647118cda3d425e8c95043620e13b28
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
+  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
@@ -97,6 +102,6 @@ SPEC CHECKSUMS:
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   RxViewController: e93e7c233d5b5b62c32231d69726d55f54081bc6
 
-PODFILE CHECKSUM: f5d2e74a15f4e6e162fd35c39e5e32f2da4f3ccb
+PODFILE CHECKSUM: 8074ab825899066a7b84691d3cd3e2f17311984a
 
 COCOAPODS: 1.6.0
