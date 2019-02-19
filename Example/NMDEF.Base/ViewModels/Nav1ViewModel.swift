@@ -11,8 +11,10 @@ class Nav1ViewModel: BaseViewModel {
     let nextCommand = PublishRelay<Void>()
     let loginCommand = PublishRelay<Void>()
 
-    required init() {
+    let email = BehaviorRelay<String?>(value: nil)
+    let password = BehaviorRelay<String?>(value: nil)
 
+    required init() {
         let userAuthService = UserAuthService()
 
         super.init()
@@ -27,7 +29,9 @@ class Nav1ViewModel: BaseViewModel {
         } => self.disposeBag
         
         loginCommand += {
-            userAuthService.Login(request: LoginRequest(email: "email", password: "pw"))
+            let request = LoginRequest(email: self.email.value!, password: self.password.value!)
+
+            userAuthService.Login(request: request)
 
             self.next(step: AppStep.menu)
         } => self.disposeBag

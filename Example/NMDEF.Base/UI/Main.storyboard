@@ -134,8 +134,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Us8-Ft-rSn">
-                                <rect key="frame" x="26" y="170" width="318" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Us8-Ft-rSn">
+                                <rect key="frame" x="26" y="168" width="318" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="318" id="KsQ-2Z-N9B"/>
                                     <constraint firstAttribute="height" constant="30" id="wWf-ws-9tR"/>
@@ -178,9 +178,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="emailTextField" destination="EwN-hw-uwW" id="F8L-Qz-9hu"/>
                         <outlet property="loginButtonOutlet" destination="hYd-GT-Osc" id="XHu-fZ-XU1"/>
                         <outlet property="menuButton" destination="uVK-ux-ZGq" id="HdS-v4-hDN"/>
                         <outlet property="nextButton" destination="NtS-uv-Coc" id="5Ux-xU-ige"/>
+                        <outlet property="passwordTextField" destination="Us8-Ft-rSn" id="Ky7-fj-vKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alo-RJ-rXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
