@@ -6,5 +6,5 @@
 //
 
 public enum AuthServices {
-    case login
+    case login(emailAddress: String, password: String)
 }

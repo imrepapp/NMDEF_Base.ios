@@ -16,7 +16,7 @@ public class UserAuthService: UserAuthServiceProtocol {
     public func Login(request: LoginRequest) {
         Context = UserAuthContext(userIdentifier: request.email, password: request.password)
 
-        provider.rx.request(.login).subscribe { event in
+        provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
             switch event {
             case let .success(response):
                 let result = response.data
