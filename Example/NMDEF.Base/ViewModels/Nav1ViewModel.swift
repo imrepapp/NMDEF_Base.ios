@@ -19,6 +19,8 @@ class Nav1ViewModel: BaseViewModel {
 
         super.init()
         title.val = "Nav1"
+        email.val = "demo@xapt.com"
+        password.val = "xapt2017"
 
         nextCommand += {
             self.next(step: AppStep.nav2)
