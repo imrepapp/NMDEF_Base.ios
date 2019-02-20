@@ -21,7 +21,9 @@
 		6581259EE9CFD74FE881078F /* ExampleTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658126A82DEA4B18E0161B95 /* ExampleTabs.swift */; };
 		65812675CE6CBB5AEA358F0D /* Tab2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658126871D9D41D753375209 /* Tab2ViewController.swift */; };
 		658127DD0C63D4C03F40DCC5 /* MenuItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812B5D84FF52E375F6B9DF /* MenuItemViewModel.swift */; };
+		6581282A2896E1F61E4F7DFB /* ExampleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812F7AC175815B80E18507 /* ExampleApi.swift */; };
 		6581293257A023F7173B5BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658121342D99FB4F44CC3711 /* Main.storyboard */; };
+		658129EC3FA2D42212B053CA /* ExampleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658123EA7E3B1DDFBE8ED8BC /* ExampleSettings.swift */; };
 		65812A130CDDC5037E784640 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658121AFD13D65AF07D6DA11 /* MainFlow.swift */; };
 		65812B0F83F7B1ED96B6555D /* Nav1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658126AAD5ACE3F98D2EF16D /* Nav1ViewController.swift */; };
 		65812B84ACBAB6F4B0B4AA22 /* Nav3ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6581255E4CB15D41228066E3 /* Nav3ViewModel.swift */; };
@@ -68,6 +70,7 @@
 		658121AFD13D65AF07D6DA11 /* MainFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
 		658121BC4C126D3D427CF9D9 /* Nav2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav2ViewController.swift; sourceTree = "<group>"; };
 		65812323CD89ED9E2EE9BB87 /* MenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
+		658123EA7E3B1DDFBE8ED8BC /* ExampleSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleSettings.swift; sourceTree = "<group>"; };
 		65812488899C1CB699C42FE5 /* NavigationFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlow.swift; sourceTree = "<group>"; };
 		658124B7DF5142800FA2C91B /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		658124C7EA35037237D5C0B0 /* Tab1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		65812E0921AF619911DC49F2 /* Tab1Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab1Flow.swift; sourceTree = "<group>"; };
 		65812E91E6D4FF2879B85577 /* Nav1ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav1ViewModel.swift; sourceTree = "<group>"; };
 		65812F10F88EDB589C6B1E51 /* Tab3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab3ViewController.swift; sourceTree = "<group>"; };
+		65812F7AC175815B80E18507 /* ExampleApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleApi.swift; sourceTree = "<group>"; };
 		65812FA29B359C34565FCAE3 /* Nav3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav3ViewController.swift; sourceTree = "<group>"; };
 		96C4BEEC7B06DF466FFF98E2 /* Pods-NMDEF.Base_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF.Base_Example.release.xcconfig"; path = "Target Support Files/Pods-NMDEF.Base_Example/Pods-NMDEF.Base_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D4534C3E66940BDA433EDA34 /* NMDEF.Base.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NMDEF.Base.podspec; path = ../NMDEF.Base.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -170,6 +174,8 @@
 				65812F6E6CC8E54FD56B821B /* ViewModels */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				65812642FF38F88D021D288A /* Info.plist */,
+				658123EA7E3B1DDFBE8ED8BC /* ExampleSettings.swift */,
+				65812F7AC175815B80E18507 /* ExampleApi.swift */,
 			);
 			name = "Example for NMDEF.Base";
 			path = NMDEF.Base;
@@ -517,6 +523,8 @@
 				6581208A26EF2C342E521EE1 /* Tab3ViewController.swift in Sources */,
 				65812B84ACBAB6F4B0B4AA22 /* Nav3ViewModel.swift in Sources */,
 				65812454155EF06305CD1090 /* Nav3ViewController.swift in Sources */,
+				658129EC3FA2D42212B053CA /* ExampleSettings.swift in Sources */,
+				6581282A2896E1F61E4F7DFB /* ExampleApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

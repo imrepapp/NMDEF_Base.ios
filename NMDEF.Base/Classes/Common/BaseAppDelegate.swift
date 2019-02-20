@@ -13,20 +13,55 @@ import UIKit
 import RxSwift
 import RxFlow
 
-open class BaseAppDelegate: UIResponder, UIApplicationDelegate, HasDisposeBag {
+open class BaseAppDelegate<TApiProtocol, TSettingsProtocol>: UIResponder, UIApplicationDelegate, HasDisposeBag
+        where TApiProtocol: BaseApiProtocol, TSettingsProtocol: BaseSettingsProtocol {
+    public static var settings: BaseSettingsProtocol {
+        return BaseAppDelegate.instance.settingsInner
+    }
+    public static var api: BaseApiProtocol {
+        return BaseAppDelegate.instance.apiInner
+    }
+    public static var instance: BaseAppDelegate {
+        return UIApplication.shared.delegate as! BaseAppDelegate
+    }
+    public static var token: String {
+        get {
+            //it would be better if I can throw an error what is catchable
+            guard BaseAppDelegate.instance._token != nil else {
+                fatalError("No token")
+            }
+            return BaseAppDelegate.instance._token!
+        }
+        set {
+            BaseAppDelegate.instance._token = newValue
+        }
+    }
+
+    private lazy var settingsInner: BaseSettingsProtocol = {
+        //TODO: DI: Resolve<TSettingsProtocol>
+        return BaseSettings()
+    }()
+    private lazy var apiInner: BaseApiProtocol = {
+        //TODO: DI: Resolve<TApiProtocol>
+        return BaseApi()
+    }()
+
     public var window: UIWindow?
     let coordinator = Coordinator()
 
     private let mainFlow: Flow
     private let initialStep: Step
-    
+
+    private var _token: String? = nil
+
     override public init() {
         fatalError("must use: init(mainFlow flow: Flow, initialStep step: Step)")
     }
-    
+
     public init(mainFlow flow: Flow, initialStep step: Step) {
         self.mainFlow = flow
         self.initialStep = step
+
         super.init();
     }
 

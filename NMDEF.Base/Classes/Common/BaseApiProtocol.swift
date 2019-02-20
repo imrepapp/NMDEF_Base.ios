@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol IBaseApi {
+public protocol BaseApiProtocol {
 
     func Login(request: LoginRequest)
 

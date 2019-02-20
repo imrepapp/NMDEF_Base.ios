@@ -4,7 +4,7 @@
 
 import Foundation
 
-class BaseApi : IBaseApi {
+class BaseApi : BaseApiProtocol {
 
     func Login(request: LoginRequest){
         //let provider = MoyaProvider<LoginService>()
