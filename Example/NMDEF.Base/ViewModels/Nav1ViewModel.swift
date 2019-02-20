@@ -27,7 +27,7 @@ class Nav1ViewModel: BaseViewModel {
         menuCommand += {
             self.next(step: AppStep.menu)
         } => self.disposeBag
-        
+
         loginCommand += {
             let request = LoginRequest(email: self.email.value!, password: self.password.value!)
 

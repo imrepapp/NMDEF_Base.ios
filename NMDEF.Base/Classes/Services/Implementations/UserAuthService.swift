@@ -19,7 +19,8 @@ public class UserAuthService: UserAuthServiceProtocol {
         provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
             switch event {
             case let .success(response):
-                let result = response.data
+                let result = String(data: response.data, encoding: .utf8)
+                print("HttpStatus code \(response.statusCode)")
             case let .error(error):
                 print(error)
             }

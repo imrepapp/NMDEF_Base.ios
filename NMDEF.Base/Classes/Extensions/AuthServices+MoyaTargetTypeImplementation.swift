@@ -7,7 +7,7 @@ import Moya
 extension AuthServices: TargetType {
     public var baseURL: URL {
         //TODO: Get the baseUrl from settings
-        return URL(string: "https://mobile-demo.xapt.com/reverse170/mobapi/sales")!
+        return URL(string: "https://mobile-demo.xapt.com/test/sales")!
     }
 
     public var path: String {
@@ -27,7 +27,7 @@ extension AuthServices: TargetType {
     public var task: Task {
         switch self {
         case .login(let email, let password):
-            return .requestParameters(parameters: ["email": "\(email)", "password": password], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["email": email, "password": password], encoding: URLEncoding.httpBody)
         }
     }
 
@@ -39,7 +39,7 @@ extension AuthServices: TargetType {
     }
 
     public var headers: [String: String]? {
-        return ["Content-type": "application/x-www-form-urlencoded"]
+        return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123"]
     }
 }
 
