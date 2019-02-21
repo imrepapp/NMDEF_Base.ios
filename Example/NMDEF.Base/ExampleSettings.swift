@@ -8,5 +8,5 @@ import NMDEF_Base
 protocol ExampleSettingsProtocol: BaseSettingsProtocol {
 }
 
-class ExampleProtocol: ExampleSettingsProtocol {
+class ExampleSettings: BaseSettings, ExampleSettingsProtocol {
 }

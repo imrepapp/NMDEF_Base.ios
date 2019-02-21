@@ -13,9 +13,9 @@ import UIKit
 import RxSwift
 import RxFlow
 
-open class BaseAppDelegate<TApiProtocol, TSettingsProtocol>: UIResponder, UIApplicationDelegate, HasDisposeBag
-        where TApiProtocol: BaseApiProtocol, TSettingsProtocol: BaseSettingsProtocol {
-    public static var settings: BaseSettingsProtocol {
+open class BaseAppDelegate: UIResponder, UIApplicationDelegate, HasDisposeBag {
+        //where TApiProtocol: BaseApiProtocol, TSettingsProtocol
+    public class var settings: BaseSettingsProtocol {
         return BaseAppDelegate.instance.settingsInner
     }
     public static var api: BaseApiProtocol {

@@ -5,7 +5,7 @@
 
 import NMDEF_Base
 
-class ExampleApiProtocol: BaseApiProtocol {
+protocol ExampleApiProtocol: BaseApiProtocol {
 
 }
 
