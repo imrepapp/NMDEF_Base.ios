@@ -5,6 +5,7 @@
 
 import NMDEF_Base
 import RxCocoa
+import RxSwift
 
 class Nav1ViewModel: BaseViewModel {
     let menuCommand = PublishRelay<Void>()
@@ -35,7 +36,17 @@ class Nav1ViewModel: BaseViewModel {
 
             let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
             userAuthService!.Login(request: request)
-
-        } => self.disposeBag
+                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                    .subscribeOn(MainScheduler.instance)
+                    .subscribe { completable in
+                        switch completable {
+                        case .completed:
+                            print("Completed with no error")
+                        case .error(let error):
+                            print("Completed with an error: \(error.localizedDescription)")
+                        }
+                    }
+                    .disposed(by: self.disposeBag)
+        }
     }
 }

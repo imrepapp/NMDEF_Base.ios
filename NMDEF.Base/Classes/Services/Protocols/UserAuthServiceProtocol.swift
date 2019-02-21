@@ -3,10 +3,11 @@
 //
 
 import Moya
+import RxSwift
 
 public protocol UserAuthServiceProtocol {
 
     var provider: MoyaProvider<AuthServices> { get }
 
-    func Login(request: LoginRequest)
+    func Login(request: LoginRequest) -> Completable
 }

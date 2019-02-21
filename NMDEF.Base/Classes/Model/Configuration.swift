@@ -4,7 +4,7 @@
 
 import Foundation
 
-class Configuration {
+public class Configuration {
 
     var name: String
 
