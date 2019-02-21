@@ -13,13 +13,12 @@ import UIKit
 import RxSwift
 import RxFlow
 
-open class BaseAppDelegate: UIResponder, UIApplicationDelegate, HasDisposeBag {
-        //where TApiProtocol: BaseApiProtocol, TSettingsProtocol
-    public class var settings: BaseSettingsProtocol {
-        return BaseAppDelegate.instance.settingsInner
+open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder, UIApplicationDelegate, HasDisposeBag {
+    public static var settings: TSettings {
+        return BaseAppDelegate.instance._settings as! TSettings
     }
-    public static var api: BaseApiProtocol {
-        return BaseAppDelegate.instance.apiInner
+    public static var api: TApi {
+        return BaseAppDelegate.instance._api as! TApi
     }
     public static var instance: BaseAppDelegate {
         return UIApplication.shared.delegate as! BaseAppDelegate
@@ -36,22 +35,21 @@ open class BaseAppDelegate: UIResponder, UIApplicationDelegate, HasDisposeBag {
             BaseAppDelegate.instance._token = newValue
         }
     }
+    public var window: UIWindow?
 
-    private lazy var settingsInner: BaseSettingsProtocol = {
-        //TODO: DI: Resolve<TSettingsProtocol>
+    let coordinator = Coordinator()
+
+    private lazy var _settings: BaseSettingsProtocol = {
+        //TODO: DI: Resolve<TSettings>
         return BaseSettings()
     }()
-    private lazy var apiInner: BaseApiProtocol = {
-        //TODO: DI: Resolve<TApiProtocol>
+    private lazy var _api: BaseApiProtocol = {
+        //TODO: DI: Resolve<TApi>
         return BaseApi()
     }()
 
-    public var window: UIWindow?
-    let coordinator = Coordinator()
-
     private let mainFlow: Flow
     private let initialStep: Step
-
     private var _token: String? = nil
 
     override public init() {

@@ -10,17 +10,14 @@ import UIKit
 import NMDEF_Base
 
 @UIApplicationMain
-class AppDelegate: BaseAppDelegate {
-/*
-    open static var settings: ExampleSettings {
-        return BaseAppDelegate.settings as! ExampleSettings
-    }
-*/
-
-
+class AppDelegate: BaseAppDelegate<ExampleSettings, ExampleApi> {
     override init() {
         super.init(mainFlow: MainFlow(), initialStep: AppStep.menu)
 
         //TODO: register singelton for services
+
+        //AppDelegate.api.Login(request: )
+        //AppDelegate.settings.authUserContext
+        //AppDelegate.token
     }
 }
