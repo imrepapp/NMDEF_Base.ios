@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
   s.dependency 'Reusable', '~>4.0'
   s.dependency 'Moya' , '~> 12.0'
   s.dependency 'Moya/RxSwift' , '~> 12.0'
+  s.dependency 'Swinject'
 end

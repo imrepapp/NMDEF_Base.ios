@@ -33,9 +33,9 @@ class Nav1ViewModel: BaseViewModel {
         loginCommand += {
             let request = LoginRequest(email: self.email.value!, password: self.password.value!)
 
-            userAuthService.Login(request: request)
+            let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
+            userAuthService!.Login(request: request)
 
-            self.next(step: AppStep.menu)
         } => self.disposeBag
     }
 }

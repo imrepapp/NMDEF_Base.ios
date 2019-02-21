@@ -12,6 +12,7 @@
 import UIKit
 import RxSwift
 import RxFlow
+import Swinject
 
 open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder, UIApplicationDelegate, HasDisposeBag {
     public static var settings: TSettings {
@@ -46,6 +47,10 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
     private lazy var _api: BaseApiProtocol = {
         //TODO: DI: Resolve<TApi>
         return BaseApi()
+    }()
+
+    public lazy var container: Container = {
+        return Container()
     }()
 
     private let mainFlow: Flow
