@@ -9,5 +9,5 @@ public protocol UserAuthServiceProtocol {
 
     var provider: MoyaProvider<AuthServices> { get }
 
-    func Login(request: LoginRequest) -> Completable
+    func Login(request: LoginRequest) -> Single<LoginResponse>
 }

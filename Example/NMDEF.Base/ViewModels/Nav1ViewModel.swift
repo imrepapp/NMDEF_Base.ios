@@ -16,8 +16,6 @@ class Nav1ViewModel: BaseViewModel {
     let password = BehaviorRelay<String?>(value: nil)
 
     required init() {
-        let userAuthService = UserAuthService()
-
         super.init()
         title.val = "Nav1"
         email.val = "demo@xapt.com"
@@ -40,8 +38,8 @@ class Nav1ViewModel: BaseViewModel {
                     .subscribeOn(MainScheduler.instance)
                     .subscribe { completable in
                         switch completable {
-                        case .completed:
-                            print("Completed with no error")
+                        case .success(let response):
+                            print(response.token)
                         case .error(let error):
                             print("Completed with an error: \(error.localizedDescription)")
                         }
