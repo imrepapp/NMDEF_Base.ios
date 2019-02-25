@@ -40,14 +40,12 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
 
     let coordinator = Coordinator()
 
-    private lazy var _settings: BaseSettingsProtocol = {
-        //TODO: DI: Resolve<TSettings>
-        return BaseSettings()
-    }()
-    private lazy var _api: BaseApiProtocol = {
-        //TODO: DI: Resolve<TApi>
-        return BaseApi()
-    }()
+    private var _settings: BaseSettings {
+        return self.container.resolve(BaseSettings.self)!
+    }
+    private var _api: BaseApi {
+        return container.resolve(BaseApi.self)!
+    }
 
     public lazy var container: Container = {
         return Container()

@@ -152,6 +152,9 @@
 				607FACD11AFB9204008FA782 /* Products */,
 				5B9DA21088CCE4280885B20C /* Pods */,
 				2CA732248C300BFA518DE85D /* Frameworks */,
+				658127E3FE029694FF056A74,
+				658127E0358EB78E5C1B32F8,
+				6581233FDAC554D5F31D46CF /* SynchronizationReconnectMethod.swift */,
 			);
 			sourceTree = "<group>";
 		};

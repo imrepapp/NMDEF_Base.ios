@@ -3,6 +3,8 @@
 //
 
 open class BaseApi : BaseApiProtocol {
+    public required init() {}
+    
     public func Login(request: LoginRequest){
         //let provider = MoyaProvider<LoginService>()
     }

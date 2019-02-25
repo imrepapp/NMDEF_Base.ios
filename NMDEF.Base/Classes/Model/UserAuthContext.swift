@@ -4,7 +4,7 @@
 
 import Foundation
 
-class UserAuthContext {
+public class UserAuthContext {
     var hcmWorker: CLong?
 
     var password: String

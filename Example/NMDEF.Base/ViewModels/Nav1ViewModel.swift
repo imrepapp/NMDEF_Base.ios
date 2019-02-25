@@ -17,6 +17,9 @@ class Nav1ViewModel: BaseViewModel {
 
     required init() {
         super.init()
+
+        print("URL: \(AppDelegate.settings.exampleVar)")
+
         title.val = "Nav1"
         email.val = "demo@xapt.com"
         password.val = "xapt2017"
@@ -43,8 +46,7 @@ class Nav1ViewModel: BaseViewModel {
                         case .error(let error):
                             print("Completed with an error: \(error.localizedDescription)")
                         }
-                    }
-                    .disposed(by: self.disposeBag)
-        }
+                    } => self.disposeBag
+        } => self.disposeBag
     }
 }

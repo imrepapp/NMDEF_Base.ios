@@ -7,8 +7,13 @@ import NMDEF_Base
 
 class MenuListViewController: BaseViewController<MenuListViewModel> {
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var versionLabel: UILabel!
+    
     override func initialize() {
+        rx.viewDidLoad += {
+            self.versionLabel.text = AppDelegate.settings.appVersion
+        } => disposeBag
+
         rx.viewCouldBind += { _ in
             self.viewModel.menuItems.bind(to: self.tableView.rx.items(cellIdentifier: "MenuItemCell", cellType: MenuItemTableViewCell.self)) {
                 (_, item, cell) in
@@ -19,7 +24,6 @@ class MenuListViewController: BaseViewController<MenuListViewModel> {
                 self.viewModel.selectMenuCommand.accept(model)
                 self.tableView.deselectSelectedRow()
             } => self.disposeBag
-
-        } => self.disposeBag
+        } => disposeBag
     }
 }

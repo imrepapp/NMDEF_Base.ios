@@ -5,8 +5,8 @@
 
 import NMDEF_Base
 
-protocol ExampleSettingsProtocol: BaseSettingsProtocol {
-}
-
-class ExampleSettings: BaseSettings, ExampleSettingsProtocol {
+class ExampleSettings: BaseSettings {
+    override var apiUrl: String { return "overriden variable" }
+    override var appName: String { return "Example application" }
+    var exampleVar: String { return  "EXAMPLE VAR" }
 }

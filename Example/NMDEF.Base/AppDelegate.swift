@@ -15,15 +15,16 @@ class AppDelegate: BaseAppDelegate<ExampleSettings, ExampleApi> {
     override init() {
         super.init(mainFlow: MainFlow(), initialStep: AppStep.menu)
 
-        //TODO: register singleton for services
         container.register(UserAuthServiceProtocol.self) { _ in
             UserAuthService()
         }.inObjectScope(.container)
 
-        let service = container.resolve(UserAuthServiceProtocol.self)
+        container.register(BaseSettings.self) { _ in
+            ExampleSettings()
+        }.inObjectScope(.container)
 
-        //AppDelegate.api.Login(request: )
-        //AppDelegate.settings.authUserContext
-        //AppDelegate.token
+        container.register(BaseApi.self) { _ in
+            ExampleApi()
+        }.inObjectScope(.container)
     }
 }
