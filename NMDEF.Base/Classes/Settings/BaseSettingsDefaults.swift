@@ -3,8 +3,6 @@
 // Copyright (c) 2019 CocoaPods. All rights reserved.
 //
 
-import Foundation
-
 struct BaseSettingsDefaults: BaseSettingsVariables {
     var userAuthContext: UserAuthContext? = nil
     var autoLoginEnabled: Bool = false

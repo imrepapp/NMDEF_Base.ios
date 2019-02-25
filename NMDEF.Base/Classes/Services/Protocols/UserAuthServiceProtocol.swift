@@ -7,7 +7,7 @@ import RxSwift
 
 public protocol UserAuthServiceProtocol {
 
-    var provider: MoyaProvider<AuthServices> { get }
+    var provider: MoyaProvider<AuthServices> { get set}
 
-    func Login(request: LoginRequest) -> Single<LoginResponse>
+    func login(request: LoginRequest) -> Single<LoginResponse>
 }

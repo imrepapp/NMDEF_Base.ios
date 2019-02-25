@@ -36,7 +36,7 @@ class Nav1ViewModel: BaseViewModel {
             let request = LoginRequest(email: self.email.value!, password: self.password.value!)
 
             let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
-            userAuthService!.Login(request: request)
+            userAuthService!.login(request: request)
                     .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                     .subscribeOn(MainScheduler.instance)
                     .subscribe { completable in

@@ -10,7 +10,7 @@
 		0557B7669DF7C51E0D8FF9B6 /* Pods_NMDEF_Base_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8122EE253F13C41C149BA75 /* Pods_NMDEF_Base_Tests.framework */; };
 		3412EF732214796E007107B0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3412EF722214796E007107B0 /* Launch.storyboard */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* UserAuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* UserAuthServiceTests.swift */; };
 		6581208A26EF2C342E521EE1 /* Tab3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812F10F88EDB589C6B1E51 /* Tab3ViewController.swift */; };
 		6581209F423099475D383BB7 /* Tab1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6581275042F4B01BF5567775 /* Tab1ViewModel.swift */; };
 		658121FD0E40C14725DD0156 /* Nav2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658121BC4C126D3D427CF9D9 /* Nav2ViewController.swift */; };
@@ -63,7 +63,7 @@
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* NMDEF.Base_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NMDEF.Base_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* UserAuthServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceTests.swift; sourceTree = "<group>"; };
 		62C27D629876CC401B1E396E /* Pods-NMDEF.Base_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF.Base_Example.debug.xcconfig"; path = "Target Support Files/Pods-NMDEF.Base_Example/Pods-NMDEF.Base_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		658120B90AD6C1AAF4683045 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		658121342D99FB4F44CC3711 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* UserAuthServiceTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -449,6 +449,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxViewController/RxViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Spry/Spry.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -465,6 +466,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,7 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* UserAuthServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

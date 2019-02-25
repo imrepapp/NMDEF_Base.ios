@@ -14,16 +14,16 @@ public class UserAuthService: UserAuthServiceProtocol {
     public init() {
     }
 
-    public func Login(request: LoginRequest) -> Single<LoginResponse> {
+    public func login(request: LoginRequest) -> Single<LoginResponse> {
         return Single<LoginResponse>.create { single in
 
             self.Context = UserAuthContext(userIdentifier: request.email, password: request.password)
             self.provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
                 switch event {
                 case let .success(response):
-                    let response = self.parseResponseToLoginResponse(response: response.data)
-                    single(.success(response))
-                        //print("HttpStatus code \(response.statusCode)")
+                    let loginResponse = self.parseResponseToLoginResponse(response: response.data)
+                    single(.success(loginResponse))
+
                 case let .error(error):
                     single(.error(error))
                     print(error)
