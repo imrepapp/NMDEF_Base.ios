@@ -15,6 +15,10 @@ class Nav1ViewModel: BaseViewModel {
     let email = BehaviorRelay<String?>(value: nil)
     let password = BehaviorRelay<String?>(value: nil)
 
+    private var sessionId: String = ""
+
+    private var relatedConfigs: [Configuration] = [Configuration]()
+
     required init() {
         super.init()
 
@@ -51,11 +55,14 @@ class Nav1ViewModel: BaseViewModel {
                     case .success(let response):
                         if response.configs.count == 1{
                             BaseAppDelegate.token = response.token
+
                             let settings = BaseAppDelegate.instance.container.resolve(BaseSettings.self)
                             settings!.userAuthContext!.selectedConfig = response.configs[0]
                             defaultUserAuthResult =  UserAuthResult.success
                         }
                         if response.configs.count > 1 {
+                            self.sessionId = response.token
+                            self.relatedConfigs = response.configs
                             defaultUserAuthResult = UserAuthResult.ambiguous
                         }
 

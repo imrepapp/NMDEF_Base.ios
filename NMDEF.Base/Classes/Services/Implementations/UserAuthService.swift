@@ -14,7 +14,7 @@ public class UserAuthService: UserAuthServiceProtocol {
 
     public func login(request: LoginRequest) -> Single<LoginResponse> {
         return Single<LoginResponse>.create { single in
-            
+
             self.provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
                 switch event {
                 case let .success(response):
@@ -28,6 +28,36 @@ public class UserAuthService: UserAuthServiceProtocol {
             }
             return Disposables.create()
         }
+    }
+
+    public func selectConfig(id: Int, sessionId: String) -> Single<LoginResponse> {
+        return Single<LoginResponse>.create { single in
+
+            self.provider.rx.request(.selectConfig(id: id, sessionId: sessionId)).subscribe { event in
+                switch event {
+                case let .success(response):
+                    let loginResponse = self.parseResponseToLoginResponse(response: response.data)
+                    single(.success(loginResponse))
+
+                case let .error(error):
+                    single(.error(error))
+                    print(error)
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
+    public func getDataAreaId(token: String) -> Single<String> {
+        fatalError("getDataAreaId(token:) has not been implemented")
+    }
+
+    public func getHcmWorkerId(token: String) -> Single<String> {
+        fatalError("getHcmWorkerId(token:) has not been implemented")
+    }
+
+    public func getCurrentUserId(token: String) -> Single<String> {
+        fatalError("getCurrentUserId(token:) has not been implemented")
     }
 
     private func parseResponseToLoginResponse(response: Data) -> LoginResponse {

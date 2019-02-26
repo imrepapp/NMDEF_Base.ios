@@ -10,4 +10,12 @@ public protocol UserAuthServiceProtocol {
     var provider: MoyaProvider<AuthServices> { get set}
 
     func login(request: LoginRequest) -> Single<LoginResponse>
+
+    func selectConfig(id: Int, sessionId: String) -> Single<LoginResponse>
+
+    func getDataAreaId(token: String) -> Single<String>
+
+    func getHcmWorkerId(token: String) -> Single<String>
+
+    func getCurrentUserId(token: String) -> Single<String>
 }

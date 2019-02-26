@@ -5,7 +5,7 @@
 //  Created by Róbert PAPP on 2019. 02. 26..
 //
 
-public enum UserAuthResult{
+public enum UserAuthResult {
     case success
     case ambiguous
     case errorData

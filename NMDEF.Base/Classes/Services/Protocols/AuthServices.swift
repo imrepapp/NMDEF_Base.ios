@@ -6,5 +6,12 @@
 //
 
 public enum AuthServices {
+
     case login(emailAddress: String, password: String)
+
+    case selectConfig(id: Int, sessionId: String)
+
+    case getDataAreaId(token: String)
+
+    case getCurrentUserId(token: String)
 }
