@@ -35,6 +35,27 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
 
         self.rx.viewDidLoad += { _ in
             self.setupBindings()
+            self.viewModel.rx.viewCreated.onNext(())
+        } => self.disposeBag
+
+        self.rx.viewWillAppear += { _ in
+            self.viewModel.rx.viewAppearing.onNext(())
+        } => self.disposeBag
+
+        self.rx.viewDidAppear += { _ in
+            self.viewModel.rx.viewAppeared.onNext(())
+        } => self.disposeBag
+
+        self.rx.viewWillDisappear += { _ in
+            self.viewModel.rx.viewDisappearing.onNext(())
+        } => self.disposeBag
+
+        self.rx.viewDidDisappear += { _ in
+            self.viewModel.rx.viewDisappeared.onNext(())
+        } => self.disposeBag
+
+        self.rx.isDismissing += { _ in
+            self.viewModel.rx.viewDestroy.onNext(())
         } => self.disposeBag
     }
 

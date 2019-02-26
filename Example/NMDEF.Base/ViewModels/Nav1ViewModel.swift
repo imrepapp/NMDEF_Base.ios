@@ -22,7 +22,7 @@ class Nav1ViewModel: BaseViewModel {
     required init() {
         super.init()
 
-        print("URL: \(AppDelegate.settings.exampleVar)")
+        print("URL: \(AppDelegate.settings.appName)")
 
         title.val = "Nav1"
         email.val = "demo@xapt.com"
@@ -40,6 +40,14 @@ class Nav1ViewModel: BaseViewModel {
             let request = LoginRequest(email: self.email.value!, password: self.password.value!)
 
             let userAuthResult = self.callLoginService(request: request)
+        } => self.disposeBag
+
+        self.rx.viewCreated += {
+            print ("View created");
+        } => self.disposeBag
+        
+        self.rx.viewAppearing += {
+            print ("View appearing");
         } => self.disposeBag
     }
 

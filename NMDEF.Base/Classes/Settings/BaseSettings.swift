@@ -5,14 +5,14 @@
 open class BaseSettings: BaseSettingsProtocol {
     private let defaults = BaseSettingsDefaults()
 
-    open var apiUrl: String {
+    public var apiUrl: String {
         fatalError("API url not defined.")
     }
     open var dataProviderUrl: String {
         fatalError("dataprovider url not defined.")
     }
-    open var appName: String {
-        fatalError("application name is not defined.")
+    public var appName: String {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as! String
     }
     open var splashMaxTimoutSec: Int {
         fatalError("max splash timeout is not defined.")

@@ -61,7 +61,7 @@ public class UserAuthService: UserAuthServiceProtocol {
     }
 
     private func parseResponseToLoginResponse(response: Data) -> LoginResponse {
-        var loginResponse: LoginResponse = LoginResponse(token: "", configs: [Configuration]())
+        let loginResponse = LoginResponse(token: "", configs: [Configuration]())
 
         do {
             let json = try JSONSerialization.jsonObject(with: response, options: .allowFragments) as! [String: AnyObject]

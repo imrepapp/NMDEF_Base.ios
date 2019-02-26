@@ -6,7 +6,5 @@
 import NMDEF_Base
 
 class ExampleSettings: BaseSettings {
-    override var apiUrl: String { return "overriden variable" }
-    override var appName: String { return "Example application" }
     var exampleVar: String { return  "EXAMPLE VAR" }
 }

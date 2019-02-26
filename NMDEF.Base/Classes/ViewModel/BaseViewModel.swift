@@ -15,7 +15,7 @@ public enum Message {
     case alert(title: String, message: String)
 }
 
-open class BaseViewModel: ViewModel, Stepper, HasDisposeBag {
+open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible {
     public let title = BehaviorRelay<String?>(value: nil)
     let presenterMessage = PublishRelay<Message>()
     let goBackMessage = PublishRelay<Void>()
