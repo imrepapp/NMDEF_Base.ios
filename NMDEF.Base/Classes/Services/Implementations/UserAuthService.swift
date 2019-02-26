@@ -7,8 +7,6 @@ import RxSwift
 
 public class UserAuthService: UserAuthServiceProtocol {
 
-    var Context: UserAuthContext?
-
     public var provider = MoyaProvider<AuthServices>()
 
     public init() {
@@ -16,8 +14,7 @@ public class UserAuthService: UserAuthServiceProtocol {
 
     public func login(request: LoginRequest) -> Single<LoginResponse> {
         return Single<LoginResponse>.create { single in
-
-            self.Context = UserAuthContext(userIdentifier: request.email, password: request.password)
+            
             self.provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
                 switch event {
                 case let .success(response):

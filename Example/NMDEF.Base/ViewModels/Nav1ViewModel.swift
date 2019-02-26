@@ -35,18 +35,37 @@ class Nav1ViewModel: BaseViewModel {
         loginCommand += {
             let request = LoginRequest(email: self.email.value!, password: self.password.value!)
 
-            let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
-            userAuthService!.login(request: request)
-                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                    .subscribeOn(MainScheduler.instance)
-                    .subscribe { completable in
-                        switch completable {
-                        case .success(let response):
-                            print(response.token)
-                        case .error(let error):
-                            print("Completed with an error: \(error.localizedDescription)")
-                        }
-                    } => self.disposeBag
+            let userAuthResult = self.callLoginService(request: request)
         } => self.disposeBag
+    }
+
+    private func callLoginService(request: LoginRequest) -> UserAuthResult {
+        let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
+        var defaultUserAuthResult = UserAuthResult.errorData
+        
+        userAuthService!.login(request: request)
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .subscribeOn(MainScheduler.instance)
+                .subscribe { completable in
+                    switch completable {
+                    case .success(let response):
+                        if response.configs.count == 1{
+                            BaseAppDelegate.token = response.token
+                            let settings = BaseAppDelegate.instance.container.resolve(BaseSettings.self)
+                            settings!.userAuthContext!.selectedConfig = response.configs[0]
+                            defaultUserAuthResult =  UserAuthResult.success
+                        }
+                        if response.configs.count > 1 {
+                            defaultUserAuthResult = UserAuthResult.ambiguous
+                        }
+
+                        print(response.token)
+                    case .error(let error):
+                        print("Completed with an error: \(error.localizedDescription)")
+                        defaultUserAuthResult = UserAuthResult.errorData
+                    }
+                } => self.disposeBag
+        
+        return defaultUserAuthResult
     }
 }

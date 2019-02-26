@@ -9,7 +9,7 @@ public class UserAuthContext {
 
     var password: String
 
-    var selectedConfig: Configuration?
+    public var selectedConfig: Configuration?
 
     var userIdentifier: String
 
