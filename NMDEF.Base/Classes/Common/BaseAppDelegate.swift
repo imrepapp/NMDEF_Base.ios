@@ -36,6 +36,11 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
             BaseAppDelegate.instance._token = newValue
         }
     }
+
+    public static var userAuthService: UserAuthService {
+        return self.instance.container.resolve(UserAuthServiceProtocol.self) as! UserAuthService
+    }
+
     public var window: UIWindow?
 
     let coordinator = Coordinator()
