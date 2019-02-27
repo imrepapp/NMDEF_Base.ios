@@ -39,48 +39,73 @@ class Nav1ViewModel: BaseViewModel {
         loginCommand += {
             let request = LoginRequest(email: self.email.value!, password: self.password.value!)
 
-            let userAuthResult = self.callLoginService(request: request)
+            self.callLoginService(request: request)
         } => self.disposeBag
 
         self.rx.viewCreated += {
-            print ("View created");
+            print("View created");
         } => self.disposeBag
-        
+
         self.rx.viewAppearing += {
-            print ("View appearing");
+            print("View appearing");
         } => self.disposeBag
     }
 
-    private func callLoginService(request: LoginRequest) -> UserAuthResult {
+    private func callLoginService(request: LoginRequest) {
         let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
-        var defaultUserAuthResult = UserAuthResult.errorData
-        
+        var userAuthResultResponse = UserAuthResult.undefined
+
         userAuthService!.login(request: request)
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribeOn(MainScheduler.instance)
-                .subscribe { completable in
+                .subscribe {
+                    completable in
                     switch completable {
-                    case .success(let response):
-                        if response.configs.count == 1{
+                    case .next(let response):
+                        if response.configs.count == 1 {
                             BaseAppDelegate.token = response.token
 
                             let settings = BaseAppDelegate.instance.container.resolve(BaseSettings.self)
                             settings!.userAuthContext!.selectedConfig = response.configs[0]
-                            defaultUserAuthResult =  UserAuthResult.success
+                            userAuthResultResponse = UserAuthResult.success
                         }
                         if response.configs.count > 1 {
                             self.sessionId = response.token
                             self.relatedConfigs = response.configs
-                            defaultUserAuthResult = UserAuthResult.ambiguous
+                            userAuthResultResponse = UserAuthResult.ambiguous
                         }
 
                         print(response.token)
                     case .error(let error):
                         print("Completed with an error: \(error.localizedDescription)")
-                        defaultUserAuthResult = UserAuthResult.errorData
+                        userAuthResultResponse = UserAuthResult.errorData
+                    case .completed:
+                        if (userAuthResultResponse == UserAuthResult.ambiguous) {
+                            let selectedConfig = self.relatedConfigs[0]
+                            userAuthService?.selectConfig(id: Int(selectedConfig.id)!, sessionId: self.sessionId)
+                                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                                    .subscribeOn(MainScheduler.instance)
+                                    .subscribe { completable in
+                                        switch completable {
+                                        case .next(let response):
+                                            print(response)
+                                        case .completed:
+                                            print("Completed")
+                                        case .error(let error):
+                                            print(error)
+                                        }
+                                    }
+                        }
+                        print("Login finished")
                     }
                 } => self.disposeBag
-        
-        return defaultUserAuthResult
     }
+
+    private func handleConfigSelection(defaultUserAuthResult: UserAuthResult) {
+        if (defaultUserAuthResult == UserAuthResult.ambiguous) {
+
+
+        }
+    }
+
 }

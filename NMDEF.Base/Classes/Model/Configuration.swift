@@ -6,9 +6,9 @@ import Foundation
 
 public class Configuration {
 
-    var name: String
+    public var name: String
 
-    var id: String
+    public var id: String
 
     init(name: String, id: String) {
         self.name = name

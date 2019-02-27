@@ -6,6 +6,7 @@
 //
 
 public enum UserAuthResult {
+    case undefined
     case success
     case ambiguous
     case errorData

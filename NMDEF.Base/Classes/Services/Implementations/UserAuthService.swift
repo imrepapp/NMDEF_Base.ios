@@ -12,17 +12,20 @@ public class UserAuthService: UserAuthServiceProtocol {
     public init() {
     }
 
-    public func login(request: LoginRequest) -> Single<LoginResponse> {
-        return Single<LoginResponse>.create { single in
+    public func login(request: LoginRequest) -> Observable<LoginResponse> {
+        return Observable<LoginResponse>.create { observer in
 
             self.provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
                 switch event {
                 case let .success(response):
+                    loginResponse(data: response.data)
+
                     let loginResponse = self.parseResponseToLoginResponse(response: response.data)
-                    single(.success(loginResponse))
+                    observer.onNext(loginResponse)
+                    observer.onCompleted()
 
                 case let .error(error):
-                    single(.error(error))
+                    observer.onError(error)
                     print(error)
                 }
             }
@@ -30,17 +33,19 @@ public class UserAuthService: UserAuthServiceProtocol {
         }
     }
 
-    public func selectConfig(id: Int, sessionId: String) -> Single<LoginResponse> {
-        return Single<LoginResponse>.create { single in
+    public func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse> {
+        return Observable<LoginResponse>.create { observer in
 
             self.provider.rx.request(.selectConfig(id: id, sessionId: sessionId)).subscribe { event in
                 switch event {
                 case let .success(response):
+                    loginResponse(data: response.data)
+
                     let loginResponse = self.parseResponseToLoginResponse(response: response.data)
-                    single(.success(loginResponse))
+                    observer.onNext(loginResponse)
 
                 case let .error(error):
-                    single(.error(error))
+                    observer.onError(error)
                     print(error)
                 }
             }
@@ -64,7 +69,7 @@ public class UserAuthService: UserAuthServiceProtocol {
         let loginResponse = LoginResponse(token: "", configs: [Configuration]())
 
         do {
-            let json = try JSONSerialization.jsonObject(with: response, options: .allowFragments) as! [String: AnyObject]
+           let json = try JSONSerialization.jsonObject(with: response, options: .allowFragments) as! [String: AnyObject]
             if let tokenValue = json["Token"] as? String {
                 loginResponse.token = tokenValue
             }

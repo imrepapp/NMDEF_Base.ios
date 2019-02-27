@@ -9,9 +9,9 @@ public protocol UserAuthServiceProtocol {
 
     var provider: MoyaProvider<AuthServices> { get set}
 
-    func login(request: LoginRequest) -> Single<LoginResponse>
+    func login(request: LoginRequest) -> Observable<LoginResponse>
 
-    func selectConfig(id: Int, sessionId: String) -> Single<LoginResponse>
+    func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse>
 
     func getDataAreaId(token: String) -> Single<String>
 

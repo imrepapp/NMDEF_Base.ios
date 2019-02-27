@@ -12,16 +12,16 @@ extension AuthServices: TargetType {
 
     public var path: String {
         switch self {
-        case .login(_, _):
+        case .login:
             return "/api/users"
 
-        case .selectConfig(_, _):
+        case .selectConfig:
             return "/api/users/"
 
-        case .getDataAreaId(_):
+        case .getDataAreaId:
             return "/api/DataAreaId"
 
-        case .getCurrentUserId(_):
+        case .getCurrentUserId:
             return "/api/CurUserId"
         }
     }
