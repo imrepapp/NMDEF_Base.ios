@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'NMDEF.Base'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Mobile Framework for NAXT 365'
 
   s.description      = <<-DESC
