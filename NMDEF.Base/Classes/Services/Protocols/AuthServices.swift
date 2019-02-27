@@ -13,5 +13,7 @@ public enum AuthServices {
 
     case getDataAreaId(token: String)
 
+    case getHcmWorkerId(token: String)
+
     case getCurrentUserId(token: String)
 }

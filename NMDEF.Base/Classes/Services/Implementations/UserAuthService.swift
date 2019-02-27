@@ -18,7 +18,7 @@ public class UserAuthService: UserAuthServiceProtocol {
             self.provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
                 switch event {
                 case let .success(response):
-                    loginResponse(data: response.data)
+                    self.parseAndPrintResponse(data: response.data)
 
                     let loginResponse = self.parseResponseToLoginResponse(response: response.data)
                     observer.onNext(loginResponse)
@@ -39,7 +39,7 @@ public class UserAuthService: UserAuthServiceProtocol {
             self.provider.rx.request(.selectConfig(id: id, sessionId: sessionId)).subscribe { event in
                 switch event {
                 case let .success(response):
-                    loginResponse(data: response.data)
+                    self.parseAndPrintResponse(data: response.data)
 
                     let loginResponse = self.parseResponseToLoginResponse(response: response.data)
                     observer.onNext(loginResponse)
@@ -88,5 +88,10 @@ public class UserAuthService: UserAuthServiceProtocol {
         }
 
         return loginResponse
+    }
+
+    private func parseAndPrintResponse(data: Data){
+        let encodedResponse = String(data: data, encoding: .utf8)
+        print(encodedResponse)
     }
 }
