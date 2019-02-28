@@ -14,51 +14,59 @@ import RxSwift
 import RxFlow
 import Swinject
 
-open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder, UIApplicationDelegate, HasDisposeBag {
+public protocol BaseAppDelegateProtocol {
+    var settings: BaseSettings { get }
+    var api: BaseApi { get }
+    var token: String? { get set }
+    var container: Container { get }
+    func setToken(_: String)
+}
+
+open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder, BaseAppDelegateProtocol, UIApplicationDelegate, HasDisposeBag {
+    public static var instance: BaseAppDelegateProtocol {
+        return UIApplication.shared.delegate as! BaseAppDelegateProtocol
+    }
+
     public static var settings: TSettings {
-        return BaseAppDelegate.instance._settings as! TSettings
+        return BaseAppDelegate.instance.settings as! TSettings
     }
     public static var api: TApi {
-        return BaseAppDelegate.instance._api as! TApi
-    }
-    public static var instance: BaseAppDelegate {
-        return UIApplication.shared.delegate as! BaseAppDelegate
+        return BaseAppDelegate.instance.api as! TApi
     }
     public static var token: String {
         get {
             //it would be better if I can throw an error what is catchable
-            guard BaseAppDelegate.instance._token != nil else {
+            guard BaseAppDelegate.instance.token != nil else {
                 fatalError("No token")
             }
-            return BaseAppDelegate.instance._token!
+            return BaseAppDelegate.instance.token!
         }
         set {
-            BaseAppDelegate.instance._token = newValue
+            BaseAppDelegate.instance.setToken(newValue)
         }
     }
-
     public static var userAuthService: UserAuthService {
         return self.instance.container.resolve(UserAuthServiceProtocol.self) as! UserAuthService
-    }
-
-    public var window: UIWindow?
-
-    let coordinator = Coordinator()
-
-    private var _settings: BaseSettings {
-        return self.container.resolve(BaseSettings.self)!
-    }
-    private var _api: BaseApi {
-        return container.resolve(BaseApi.self)!
     }
 
     public lazy var container: Container = {
         return Container()
     }()
+    public var settings: BaseSettings {
+        return self.container.resolve(BaseSettings.self)!
+    }
+    public var api: BaseApi {
+        return self.container.resolve(BaseApi.self)!
+    }
+    public var token: String? = nil
+    public func setToken(_ token: String) {
+        self.token = token
+    }
 
+    let coordinator = Coordinator()
     private let mainFlow: Flow
     private let initialStep: Step
-    private var _token: String? = nil
+    public var window: UIWindow?
 
     override public init() {
         fatalError("must use: init(mainFlow flow: Flow, initialStep step: Step)")
