@@ -5,9 +5,10 @@
 import Moya
 import RxSwift
 
-public class UserAuthService: UserAuthServiceProtocol {
+public class UserAuthService: UserAuthServiceProtocol, JsonParserProtocol {
 
     public var provider = MoyaProvider<AuthServices>()
+    typealias ResponseType = LoginResponse
 
     public init() {
     }
@@ -20,7 +21,7 @@ public class UserAuthService: UserAuthServiceProtocol {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
 
-                    let loginResponse = self.parseResponseToLoginResponse(response: response.data)
+                    let loginResponse = self.parseResponseByResponseType(response: response.data)
                     observer.onNext(loginResponse)
                     observer.onCompleted()
 
@@ -41,7 +42,7 @@ public class UserAuthService: UserAuthServiceProtocol {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
 
-                    let loginResponse = self.parseResponseToLoginResponse(response: response.data)
+                    let loginResponse = self.parseResponseByResponseType(response: response.data)
                     observer.onNext(loginResponse)
 
                 case let .error(error):
@@ -61,7 +62,6 @@ public class UserAuthService: UserAuthServiceProtocol {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
 
-                    let loginResponse = self.parseJsonByEntryName(response: response.data, entryName: "token")
                     observer.onNext("getDataAreaId")
 
                 case let .error(error):
@@ -81,7 +81,6 @@ public class UserAuthService: UserAuthServiceProtocol {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
 
-                    let loginResponse = self.parseJsonByEntryName(response: response.data, entryName: "token")
                     observer.onNext(CLong(5))
 
                 case let .error(error):
@@ -101,7 +100,6 @@ public class UserAuthService: UserAuthServiceProtocol {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
 
-                    let loginResponse = self.parseResponseToLoginResponse(response: response.data)
                     observer.onNext("getCurrentUserId")
 
                 case let .error(error):
@@ -113,16 +111,8 @@ public class UserAuthService: UserAuthServiceProtocol {
         }
     }
 
-    private func parseJsonByEntryName(response: Data, entryName: String) {
-        do {
-            let json = try JSONSerialization.jsonObject(with: response, options: .allowFragments) as! [String: AnyObject]
 
-        } catch let error as NSError {
-            print("Failed to load: \(error.localizedDescription)")
-        }
-    }
-
-    private func parseResponseToLoginResponse(response: Data) -> LoginResponse {
+    func parseResponseByResponseType(response: Data) -> LoginResponse {
         do {
             guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: response) else {
                 throw LoginRequestParsingError.jsonParsingError("Error in parsing login response")
