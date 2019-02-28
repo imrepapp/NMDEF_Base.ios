@@ -15,7 +15,7 @@ public class UserAuthService: UserAuthServiceProtocol {
     public func login(request: LoginRequest) -> Observable<LoginResponse> {
         return Observable<LoginResponse>.create { observer in
 
-            self.provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
+            let disposable = self.provider.rx.request(.login(emailAddress: request.email, password: request.password)).subscribe { event in
                 switch event {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
@@ -29,14 +29,14 @@ public class UserAuthService: UserAuthServiceProtocol {
                     print(error)
                 }
             }
-            return Disposables.create()
+            return disposable
         }
     }
 
     public func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse> {
         return Observable<LoginResponse>.create { observer in
 
-            self.provider.rx.request(.selectConfig(id: id, sessionId: sessionId)).subscribe { event in
+            let disposable = self.provider.rx.request(.selectConfig(id: id, sessionId: sessionId)).subscribe { event in
                 switch event {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
@@ -49,49 +49,97 @@ public class UserAuthService: UserAuthServiceProtocol {
                     print(error)
                 }
             }
-            return Disposables.create()
+            return disposable
         }
     }
 
-    public func getDataAreaId(token: String) -> Single<String> {
-        fatalError("getDataAreaId(token:) has not been implemented")
-    }
+    public func getDataAreaId(token: String) -> Observable<String> {
+        return Observable<String>.create { observer in
 
-    public func getHcmWorkerId(token: String) -> Single<String> {
-        fatalError("getHcmWorkerId(token:) has not been implemented")
-    }
+            let disposable = self.provider.rx.request(.getDataAreaId(token: token)).subscribe { event in
+                switch event {
+                case let .success(response):
+                    self.parseAndPrintResponse(data: response.data)
 
-    public func getCurrentUserId(token: String) -> Single<String> {
-        fatalError("getCurrentUserId(token:) has not been implemented")
-    }
+                    let loginResponse = self.parseJsonByEntryName(response: response.data, entryName: "token")
+                    observer.onNext("getDataAreaId")
 
-    private func parseResponseToLoginResponse(response: Data) -> LoginResponse {
-        let loginResponse = LoginResponse(token: "", configs: [Configuration]())
-
-        do {
-           let json = try JSONSerialization.jsonObject(with: response, options: .allowFragments) as! [String: AnyObject]
-            if let tokenValue = json["Token"] as? String {
-                loginResponse.token = tokenValue
-            }
-            if let configurations = json["Configs"] as? NSArray {
-                for (config) in configurations {
-                    let keyValuePair = config as! NSDictionary
-                    let name = keyValuePair["Name"] as! String
-                    let id = keyValuePair["Id"] as! Int
-                    let parsedConfig = Configuration(name: name, id: String(id))
-
-                    loginResponse.configs.append(parsedConfig)
+                case let .error(error):
+                    observer.onError(error)
+                    print(error)
                 }
             }
+            return disposable
+        }
+    }
+
+    public func getHcmWorkerId(token: String) -> Observable<CLong> {
+        return Observable<CLong>.create { observer in
+
+            let disposable = self.provider.rx.request(.getDataAreaId(token: token)).subscribe { event in
+                switch event {
+                case let .success(response):
+                    self.parseAndPrintResponse(data: response.data)
+
+                    let loginResponse = self.parseJsonByEntryName(response: response.data, entryName: "token")
+                    observer.onNext(CLong(5))
+
+                case let .error(error):
+                    observer.onError(error)
+                    print(error)
+                }
+            }
+            return disposable
+        }
+    }
+
+    public func getCurrentUserId(token: String) -> Observable<String> {
+        return Observable<String>.create { observer in
+
+            let disposable = self.provider.rx.request(.getDataAreaId(token: token)).subscribe { event in
+                switch event {
+                case let .success(response):
+                    self.parseAndPrintResponse(data: response.data)
+
+                    let loginResponse = self.parseResponseToLoginResponse(response: response.data)
+                    observer.onNext("getCurrentUserId")
+
+                case let .error(error):
+                    observer.onError(error)
+                    print(error)
+                }
+            }
+            return disposable
+        }
+    }
+
+    private func parseJsonByEntryName(response: Data, entryName: String) {
+        do {
+            let json = try JSONSerialization.jsonObject(with: response, options: .allowFragments) as! [String: AnyObject]
+
         } catch let error as NSError {
             print("Failed to load: \(error.localizedDescription)")
         }
-
-        return loginResponse
     }
 
-    private func parseAndPrintResponse(data: Data){
+    private func parseResponseToLoginResponse(response: Data) -> LoginResponse {
+        do {
+            guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: response) else {
+                throw LoginRequestParsingError.jsonParsingError("Error in parsing login response")
+            }
+
+            print("Login response parsed successfuly with the following data\(loginResponse)")
+            return loginResponse
+
+        } catch let error as NSError {
+            print("Failed to load: \(error.localizedDescription)")
+            return LoginResponse(token: "", configs: [Configuration]())
+        }
+    }
+
+    private func parseAndPrintResponse(data: Data) {
         let encodedResponse = String(data: data, encoding: .utf8)
-        print(encodedResponse)
+        print(encodedResponse ?? "No data received from server")
     }
 }
+

@@ -4,15 +4,19 @@
 
 import Foundation
 
-public class Configuration {
+public class Configuration: Decodable {
 
     public var name: String
 
-    public var id: String
+    public var id: Int
 
-    init(name: String, id: String) {
+    init(name: String, id: Int) {
         self.name = name
         self.id = id
     }
-
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "Id"
+        case name = "Name"
+    }
 }

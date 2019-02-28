@@ -13,9 +13,9 @@ public protocol UserAuthServiceProtocol {
 
     func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse>
 
-    func getDataAreaId(token: String) -> Single<String>
+    func getDataAreaId(token: String) -> Observable<String>
 
-    func getHcmWorkerId(token: String) -> Single<String>
+    func getHcmWorkerId(token: String) -> Observable<CLong>
 
-    func getCurrentUserId(token: String) -> Single<String>
+    func getCurrentUserId(token: String) -> Observable<String>
 }

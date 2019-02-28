@@ -82,12 +82,14 @@ class Nav1ViewModel: BaseViewModel {
                     case .completed:
                         if (userAuthResultResponse == UserAuthResult.ambiguous) {
                             let selectedConfig = self.relatedConfigs[0]
-                            userAuthService?.selectConfig(id: Int(selectedConfig.id)!, sessionId: self.sessionId)
+                            userAuthService?.selectConfig(id: selectedConfig.id, sessionId: self.sessionId)
                                     .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                                     .subscribeOn(MainScheduler.instance)
                                     .subscribe { completable in
                                         switch completable {
                                         case .next(let response):
+                                            //TODO set token and config
+                                            userAuthResultResponse  = UserAuthResult.success
                                             print(response)
                                         case .completed:
                                             print("Completed")
