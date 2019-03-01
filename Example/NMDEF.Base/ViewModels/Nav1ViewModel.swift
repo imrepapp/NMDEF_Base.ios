@@ -54,49 +54,23 @@ class Nav1ViewModel: BaseViewModel {
     private func callLoginService(request: LoginRequest) {
 
         let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
-        var token: String = ""
 
         userAuthService!.login(request: request)
-                .map { response -> (LoginResponse) in
-                    if response.configs.count == 1 {
-                        /*BaseAppDelegate.token = response.token
-                            let settings = BaseAppDelegate.instance.container.resolve(BaseSettingsProtocol.self)
-                            settings!.userAuthContext!.selectedConfig = response.configs[0]*/
+                .flatMap { response -> Observable<LoginResponse> in
+                    if (response.configs.count > 1) {
+                        return userAuthService!.selectConfig(id: response.configs[0].id, sessionId: response.token)
                     }
-                    if response.configs.count > 1 {
-                        self.sessionId = response.token
-                        self.relatedConfigs = response.configs
-
-                        userAuthService!.selectConfig(id: response.configs[0].id, sessionId: response.token)
-                                .subscribe({ configResponse in
-                                    switch configResponse {
-                                    case .next(let configResponse):
-                                        token = configResponse.token
-                                        print(response)
-                                    case .completed:
-                                        print("completed")
-                                    case .error:
-                                        print("error")
-                                    }
-                                }) => self.disposeBag
-                    }
-                    return response
+                    
+                    return Observable.of(response)
                 }
-                .map { response -> (LoginResponse) in
+                .flatMap { response -> Observable<String> in
+                     //TODO: set values because one config is available
+                    //TODO Return response instead of string
+                    return userAuthService!.getWorkerData(token: response.token)
+                }
+                .map { response -> Void in
+                    //TODO: set values of get worker data
                     print("get data area id started")
-                    userAuthService!.getWorkerData(token: token)
-                            .subscribe({ configResponse in
-                                switch configResponse {
-                                case .next(let response):
-                                    print(response)
-                                case .completed:
-                                    print("completed get data area id")
-                                case .error:
-                                    print("error")
-                                }
-                            }) => self.disposeBag
-
-                    return response
                 }
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribeOn(MainScheduler.instance)
