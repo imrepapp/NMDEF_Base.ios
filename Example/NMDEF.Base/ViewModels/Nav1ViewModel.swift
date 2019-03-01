@@ -53,61 +53,45 @@ class Nav1ViewModel: BaseViewModel {
 
     private func callLoginService(request: LoginRequest) {
         let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
-        var userAuthResultResponse = UserAuthResult.undefined
 
         userAuthService!.login(request: request)
+                .map { response -> (LoginResponse) in
+                    if response.configs.count == 1 {
+                        BaseAppDelegate.token = response.token
+                        let settings = BaseAppDelegate.instance.container.resolve(BaseSettingsProtocol.self)
+                        settings!.userAuthContext!.selectedConfig = response.configs[0]*
+                    }
+                    if response.configs.count > 1 {
+                        self.sessionId = response.token
+                        self.relatedConfigs = response.configs
+
+                        userAuthService!.selectConfig(id: self.relatedConfigs[0].id, sessionId: self.sessionId)
+                                .subscribe({ configResponse in
+                                    switch configResponse {
+                                    case .next(let response):
+                                        BaseAppDelegate.token = response.token
+                                        print(response)
+                                    case .completed:
+                                        print("completed")
+                                    case .error:
+                                        print("error")
+                                    }
+                                }) => self.disposeBag
+                    }
+
+                    return response
+                }
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribeOn(MainScheduler.instance)
-                .subscribe {
-                    completable in
-                    switch completable {
+                .subscribe({ configResponse in
+                    switch configResponse {
                     case .next(let response):
-                        if response.configs.count == 1 {
-                            BaseAppDelegate.token = response.token
-
-                            let settings = BaseAppDelegate.instance.container.resolve(BaseSettings.self)
-                            settings!.userAuthContext!.selectedConfig = response.configs[0]
-                            userAuthResultResponse = UserAuthResult.success
-                        }
-                        if response.configs.count > 1 {
-                            self.sessionId = response.token
-                            self.relatedConfigs = response.configs
-                            userAuthResultResponse = UserAuthResult.ambiguous
-                        }
-
-                        print(response.token)
-                    case .error(let error):
-                        print("Completed with an error: \(error.localizedDescription)")
-                        userAuthResultResponse = UserAuthResult.errorData
+                        print(response)
                     case .completed:
-                        if (userAuthResultResponse == UserAuthResult.ambiguous) {
-                            let selectedConfig = self.relatedConfigs[0]
-                            userAuthService?.selectConfig(id: selectedConfig.id, sessionId: self.sessionId)
-                                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                                    .subscribeOn(MainScheduler.instance)
-                                    .subscribe { completable in
-                                        switch completable {
-                                        case .next(let response):
-                                            //TODO set token and config
-                                            userAuthResultResponse  = UserAuthResult.success
-                                            print(response)
-                                        case .completed:
-                                            print("Completed")
-                                        case .error(let error):
-                                            print(error)
-                                        }
-                                    }
-                        }
-                        print("Login finished")
+                        print("completed")
+                    case .error:
+                        print("error")
                     }
-                } => self.disposeBag
+                }) => self.disposeBag
     }
-
-    private func handleConfigSelection(defaultUserAuthResult: UserAuthResult) {
-        if (defaultUserAuthResult == UserAuthResult.ambiguous) {
-
-
-        }
-    }
-
 }
