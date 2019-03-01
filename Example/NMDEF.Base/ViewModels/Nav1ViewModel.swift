@@ -59,7 +59,7 @@ class Nav1ViewModel: BaseViewModel {
                     if response.configs.count == 1 {
                         BaseAppDelegate.token = response.token
                         let settings = BaseAppDelegate.instance.container.resolve(BaseSettingsProtocol.self)
-                        settings!.userAuthContext!.selectedConfig = response.configs[0]*
+                        settings!.userAuthContext!.selectedConfig = response.configs[0]
                     }
                     if response.configs.count > 1 {
                         self.sessionId = response.token

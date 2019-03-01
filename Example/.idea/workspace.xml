@@ -4,7 +4,6 @@
     <list default="true" id="8e6ba7ac-ed74-4759-bf58-a7d8177e9203" name="Default Changelist" comment="BaseViewModel Rx events">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav1ViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav1ViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NMDEF.Base/Classes/Extensions/AuthServices+MoyaTargetTypeImplementation.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../NMDEF.Base/Classes/Extensions/AuthServices+MoyaTargetTypeImplementation.swift" afterDir="false" />
     </list>
     <ignored path="Podfile.lock" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav1ViewModel.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+            <state relative-caret-position="219">
+              <caret line="61" column="87" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="87" />
               <folding>
                 <element signature="e#100#117#0" expanded="true" />
               </folding>
@@ -44,7 +43,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Services/Implementations/UserAuthService.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
+            <state relative-caret-position="720">
               <caret line="49" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="e#48#59#0" expanded="true" />
@@ -210,6 +209,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -284,7 +284,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Cidr.FilesView" />
     </panes>
   </component>
@@ -432,7 +431,8 @@
       <workItem from="1551388348026" duration="1561000" />
       <workItem from="1551390367972" duration="666000" />
       <workItem from="1551428864272" duration="344000" />
-      <workItem from="1551430672610" duration="1523000" />
+      <workItem from="1551430672610" duration="1706000" />
+      <workItem from="1551432601898" duration="227000" />
     </task>
     <task id="LOCAL-00001" summary="Add example file sturcture and menu view controller">
       <created>1550075835476</created>
@@ -452,7 +452,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172023000" />
+    <option name="totallyTimeSpent" value="172433000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,7 +464,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="984" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="988" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2342918" />
@@ -871,6 +871,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav1ViewModel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="61" column="87" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="87" />
+          <folding>
+            <element signature="e#100#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/ViewModel/BaseViewModel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Services/Implementations/UserAuthService.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#48#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Extensions/AuthServices+MoyaTargetTypeImplementation.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Model/LoginResponse.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -910,40 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1485">
           <caret line="99" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Extensions/AuthServices+MoyaTargetTypeImplementation.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/ViewModel/BaseViewModel.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Services/Implementations/UserAuthService.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#48#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav1ViewModel.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-          <folding>
-            <element signature="e#100#117#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
