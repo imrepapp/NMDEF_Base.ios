@@ -18,14 +18,8 @@ extension AuthServices: TargetType {
         case .selectConfig:
             return "/api/users/"
 
-        case .getDataAreaId:
-            return "/api/DataAreaId"
-
-        case .getCurrentUserId:
-            return "/api/CurUserId"
-
-        case .getHcmWorkerId:
-            return "/api/HcmWorker"
+        case .getWorkerData:
+            return "/api/workerdata"
         }
     }
 
@@ -37,7 +31,7 @@ extension AuthServices: TargetType {
         case .selectConfig:
             return .put
 
-        case .getDataAreaId, .getCurrentUserId, .getHcmWorkerId:
+        case .getWorkerData:
             return .get
 
         }
@@ -51,20 +45,14 @@ extension AuthServices: TargetType {
         case .selectConfig(let id, let sessionId):
             return .requestParameters(parameters: ["id": id, "sessionId": sessionId], encoding: URLEncoding.queryString)
 
-        case .getDataAreaId:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.httpBody)
-
-        case .getCurrentUserId:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.httpBody)
-
-        case .getHcmWorkerId:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.httpBody)
+        case .getWorkerData:
+            return .requestPlain
         }
     }
 
     public var sampleData: Data {
         switch self {
-        case .login, .selectConfig, .getDataAreaId, .getCurrentUserId, .getHcmWorkerId:
+        case .login, .selectConfig, .getWorkerData:
             return "data".utf8Encoded
         }
     }
@@ -74,14 +62,8 @@ extension AuthServices: TargetType {
         //TODO: Get device id and put inside the dictionary
         case .login, .selectConfig:
             return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123"]
-        case .getCurrentUserId(let token):
-            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123", "X-ZUMO-AUTH": token]
-
-        case .getDataAreaId(let token):
-            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123", "X-ZUMO-AUTH": token]
-
-        case .getHcmWorkerId(let token):
-            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123", "X-ZUMO-AUTH": token]
+        case .getWorkerData(let token):
+            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123", "X-ZUMO-AUTH": token, "ZUMO-API-VERSION": "2.0.0"]
         }
     }
 }

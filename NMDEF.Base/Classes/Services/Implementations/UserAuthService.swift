@@ -54,12 +54,13 @@ public class UserAuthService: UserAuthServiceProtocol, JsonParserProtocol {
         }
     }
 
-    public func getDataAreaId(token: String) -> Observable<String> {
+    public func getWorkerData(token: String) -> Observable<String> {
         return Observable<String>.create { observer in
 
-            let disposable = self.provider.rx.request(.getDataAreaId(token: token)).subscribe { event in
+            let disposable = self.provider.rx.request(.getWorkerData(token: token)).subscribe { event in
                 switch event {
                 case let .success(response):
+                    print("Get data area id")
                     self.parseAndPrintResponse(data: response.data)
 
                     observer.onNext("getDataAreaId")
@@ -72,45 +73,6 @@ public class UserAuthService: UserAuthServiceProtocol, JsonParserProtocol {
             return disposable
         }
     }
-
-    public func getHcmWorkerId(token: String) -> Observable<CLong> {
-        return Observable<CLong>.create { observer in
-
-            let disposable = self.provider.rx.request(.getDataAreaId(token: token)).subscribe { event in
-                switch event {
-                case let .success(response):
-                    self.parseAndPrintResponse(data: response.data)
-
-                    observer.onNext(CLong(5))
-
-                case let .error(error):
-                    observer.onError(error)
-                    print(error)
-                }
-            }
-            return disposable
-        }
-    }
-
-    public func getCurrentUserId(token: String) -> Observable<String> {
-        return Observable<String>.create { observer in
-
-            let disposable = self.provider.rx.request(.getDataAreaId(token: token)).subscribe { event in
-                switch event {
-                case let .success(response):
-                    self.parseAndPrintResponse(data: response.data)
-
-                    observer.onNext("getCurrentUserId")
-
-                case let .error(error):
-                    observer.onError(error)
-                    print(error)
-                }
-            }
-            return disposable
-        }
-    }
-
 
     func parseResponseByResponseType(response: Data) -> LoginResponse {
         do {

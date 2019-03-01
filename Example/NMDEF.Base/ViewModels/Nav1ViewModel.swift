@@ -52,24 +52,26 @@ class Nav1ViewModel: BaseViewModel {
     }
 
     private func callLoginService(request: LoginRequest) {
+
         let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
+        var token: String = ""
 
         userAuthService!.login(request: request)
                 .map { response -> (LoginResponse) in
                     if response.configs.count == 1 {
-                        BaseAppDelegate.token = response.token
-                        let settings = BaseAppDelegate.instance.container.resolve(BaseSettingsProtocol.self)
-                        settings!.userAuthContext!.selectedConfig = response.configs[0]
+                        /*BaseAppDelegate.token = response.token
+                            let settings = BaseAppDelegate.instance.container.resolve(BaseSettingsProtocol.self)
+                            settings!.userAuthContext!.selectedConfig = response.configs[0]*/
                     }
                     if response.configs.count > 1 {
                         self.sessionId = response.token
                         self.relatedConfigs = response.configs
 
-                        userAuthService!.selectConfig(id: self.relatedConfigs[0].id, sessionId: self.sessionId)
+                        userAuthService!.selectConfig(id: response.configs[0].id, sessionId: response.token)
                                 .subscribe({ configResponse in
                                     switch configResponse {
-                                    case .next(let response):
-                                        BaseAppDelegate.token = response.token
+                                    case .next(let configResponse):
+                                        token = configResponse.token
                                         print(response)
                                     case .completed:
                                         print("completed")
@@ -78,6 +80,21 @@ class Nav1ViewModel: BaseViewModel {
                                     }
                                 }) => self.disposeBag
                     }
+                    return response
+                }
+                .map { response -> (LoginResponse) in
+                    print("get data area id started")
+                    userAuthService!.getWorkerData(token: token)
+                            .subscribe({ configResponse in
+                                switch configResponse {
+                                case .next(let response):
+                                    print(response)
+                                case .completed:
+                                    print("completed get data area id")
+                                case .error:
+                                    print("error")
+                                }
+                            }) => self.disposeBag
 
                     return response
                 }
@@ -88,7 +105,7 @@ class Nav1ViewModel: BaseViewModel {
                     case .next(let response):
                         print(response)
                     case .completed:
-                        print("completed")
+                        print("login completed")
                     case .error:
                         print("error")
                     }

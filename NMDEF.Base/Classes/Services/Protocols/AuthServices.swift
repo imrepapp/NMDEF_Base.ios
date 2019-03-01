@@ -11,9 +11,5 @@ public enum AuthServices {
 
     case selectConfig(id: Int, sessionId: String)
 
-    case getDataAreaId(token: String)
-
-    case getHcmWorkerId(token: String)
-
-    case getCurrentUserId(token: String)
+    case getWorkerData(token: String)
 }
