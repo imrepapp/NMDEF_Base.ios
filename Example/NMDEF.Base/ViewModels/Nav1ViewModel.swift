@@ -63,7 +63,7 @@ class Nav1ViewModel: BaseViewModel {
                     
                     return Observable.of(response)
                 }
-                .flatMap { response -> Observable<String> in
+                .flatMap { response -> Observable<WorkerData> in
                      //TODO: set values because one config is available
                     //TODO Return response instead of string
                     return userAuthService!.getWorkerData(token: response.token)

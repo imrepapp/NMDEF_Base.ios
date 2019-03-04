@@ -3,7 +3,10 @@
 //
 
 protocol JsonParserProtocol {
-    associatedtype ResponseType
+    associatedtype LoginResponseType
+    associatedtype HcmWorkerType
 
-    func parseResponseByResponseType(response: Data) -> ResponseType
+    func parseResponseByResponseType(response: Data) -> LoginResponseType
+
+    func parseResponseByHcmWorkerType(response: Data) -> HcmWorkerType
 }

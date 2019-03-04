@@ -9,6 +9,7 @@ public class UserAuthService: UserAuthServiceProtocol, JsonParserProtocol {
 
     public var provider = MoyaProvider<AuthServices>()
     typealias ResponseType = LoginResponse
+    typealias HcmWorkerType = WorkerData
 
     public init() {
     }
@@ -54,16 +55,16 @@ public class UserAuthService: UserAuthServiceProtocol, JsonParserProtocol {
         }
     }
 
-    public func getWorkerData(token: String) -> Observable<String> {
-        return Observable<String>.create { observer in
+    public func getWorkerData(token: String) -> Observable<WorkerData> {
+        return Observable<WorkerData>.create { observer in
 
             let disposable = self.provider.rx.request(.getWorkerData(token: token)).subscribe { event in
                 switch event {
                 case let .success(response):
-                    print("Get data area id")
                     self.parseAndPrintResponse(data: response.data)
+                    let workerData = self.parseResponseByHcmWorkerType(response: response.data)
 
-                    observer.onNext("getDataAreaId")
+                    observer.onNext(workerData)
 
                 case let .error(error):
                     observer.onError(error)
@@ -84,8 +85,23 @@ public class UserAuthService: UserAuthServiceProtocol, JsonParserProtocol {
             return loginResponse
 
         } catch let error as NSError {
-            print("Failed to load: \(error.localizedDescription)")
+            print("Failed to load login response: \(error.localizedDescription)")
             return LoginResponse(token: "", configs: [Configuration]())
+        }
+    }
+
+    func parseResponseByHcmWorkerType(response: Data) -> WorkerData {
+        do {
+            guard let workerDataResponse = try? JSONDecoder().decode(WorkerData.self, from: response) else {
+                throw LoginRequestParsingError.jsonParsingError("Error in parsing login response")
+            }
+
+            print("Login response parsed successfuly with the following data\(workerDataResponse)")
+            return workerDataResponse
+
+        } catch let error as NSError {
+            print("Failed to load worker data: \(error.localizedDescription)")
+            return WorkerData(hcmWorkerId: 0, dataAreaId: "")
         }
     }
 
