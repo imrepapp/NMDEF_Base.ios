@@ -46,7 +46,7 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
         }
     }
     public static var userAuthService: UserAuthService {
-        return self.instance.container.resolve(UserAuthServiceProtocol.self) as! UserAuthService
+        return self.instance.container.resolve(LoginAuthServiceProtocol.self) as! UserAuthService
     }
 
     public lazy var container: Container = {

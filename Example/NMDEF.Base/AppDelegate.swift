@@ -8,6 +8,7 @@
 
 import UIKit
 import NMDEF_Base
+import Moya
 
 @UIApplicationMain
 class AppDelegate: BaseAppDelegate<ExampleSettings, ExampleApi> {
@@ -16,7 +17,7 @@ class AppDelegate: BaseAppDelegate<ExampleSettings, ExampleApi> {
         super.init(mainFlow: MainFlow(), initialStep: AppStep.menu)
 
         container.register(UserAuthServiceProtocol.self) { _ in
-            UserAuthService()
+            UserAuthService(loginAuthServiceProtocol: LoginAuthService<LoginResponse>() , hcmWorkerAuthServiceProtocol: HcmWorkerAuthService<WorkerData>())
         }.inObjectScope(.container)
 
         container.register(BaseSettings.self) { _ in

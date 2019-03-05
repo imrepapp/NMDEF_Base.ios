@@ -9,7 +9,7 @@ import Moya
 
 class UserAuthServiceTests: QuickSpec {
 
-    private var userAuthService: UserAuthServiceProtocol = UserAuthService()
+    private var userAuthService: LoginAuthServiceProtocol = UserAuthService()
     private var correctLoginRequest = LoginRequest(email: "mobile@xapt.com", password: "xapt2017")
 
     override func setUp() {
