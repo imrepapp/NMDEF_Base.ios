@@ -8,5 +8,5 @@ public protocol HcmWorkerAuthServiceProtocol {
 
     func getWorkerData(token: String) -> Observable<WorkerData>
 
-    func parseResponseByHcmWorkerType(response: Data) -> WorkerData
+    func parseResponseByHcmWorkerType(response: Data) throws -> WorkerData
 }

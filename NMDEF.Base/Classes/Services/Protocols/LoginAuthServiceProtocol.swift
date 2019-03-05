@@ -13,5 +13,5 @@ public protocol LoginAuthServiceProtocol {
 
     func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse>
 
-    func parseResponseByResponseType(response: Data) -> LoginResponse
+    func parseResponseByResponseType(response: Data) throws -> LoginResponse
 }

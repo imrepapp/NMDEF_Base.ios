@@ -14,8 +14,8 @@ public class LoginAuthService<TLoginResponse: LoginResponse>: LoginAuthServicePr
         return selectConfigGeneric(id: id, sessionId: sessionId) as! Observable<LoginResponse>
     }
 
-    public func parseResponseByResponseType(response: Data) -> LoginResponse {
-        return parseResponseByResponseTypeGeneric(response: response) as LoginResponse
+    public func parseResponseByResponseType(response: Data) throws -> LoginResponse {
+        return try parseResponseByResponseTypeGeneric(response: response) as LoginResponse
     }
 
     public init(){
@@ -32,10 +32,13 @@ public class LoginAuthService<TLoginResponse: LoginResponse>: LoginAuthServicePr
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
 
-                    let loginResponse = self.parseResponseByResponseTypeGeneric(response: response.data)
-                    observer.onNext(loginResponse)
-                    observer.onCompleted()
-
+                    do {
+                        let loginResponse = try self.parseResponseByResponseTypeGeneric(response: response.data)
+                        observer.onNext(loginResponse)
+                        observer.onCompleted()
+                    } catch {
+                        observer.onError(LoginParsingError.jsonParsingError("Error in parsing login response"))
+                    }
                 case let .error(error):
                     observer.onError(error)
                     print(error)
@@ -53,8 +56,14 @@ public class LoginAuthService<TLoginResponse: LoginResponse>: LoginAuthServicePr
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
 
-                    let loginResponse = self.parseResponseByResponseTypeGeneric(response: response.data)
-                    observer.onNext(loginResponse)
+                    do{
+                        let loginResponse = try self.parseResponseByResponseTypeGeneric(response: response.data)
+                        observer.onNext(loginResponse)
+                        observer.onCompleted()
+                    }
+                    catch{
+                        observer.onError(LoginParsingError.jsonParsingError("Error in parsing login response"))
+                    }
 
                 case let .error(error):
                     observer.onError(error)
@@ -65,16 +74,13 @@ public class LoginAuthService<TLoginResponse: LoginResponse>: LoginAuthServicePr
         }
     }
 
-    private func parseResponseByResponseTypeGeneric(response: Data) -> TLoginResponse {
+    private func parseResponseByResponseTypeGeneric(response: Data) throws -> TLoginResponse {
         do {
             guard let loginResponse = try? JSONDecoder().decode(TLoginResponse.self, from: response) else {
-                throw LoginRequestParsingError.jsonParsingError("Error in parsing login response")
+                throw LoginParsingError.jsonParsingError("Error in parsing login response")
             }
             print("Login response parsed successfully with the following data\(loginResponse)")
             return loginResponse
-        } catch {
-            print("Error happened during login response parsing")
-            return LoginResponse(token: "", configs: [Configuration]()) as! TLoginResponse
         }
     }
 

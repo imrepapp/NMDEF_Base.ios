@@ -16,8 +16,8 @@ public class HcmWorkerAuthService<THcmWorker: WorkerData>: HcmWorkerAuthServiceP
         return getWorkerDataGeneric(token: token) as! Observable<WorkerData>
     }
 
-    public func parseResponseByHcmWorkerType(response: Data) -> WorkerData {
-        return parseResponseByHcmWorkerTypeGeneric(response: response) as WorkerData
+    public func parseResponseByHcmWorkerType(response: Data) throws -> WorkerData {
+        return try parseResponseByHcmWorkerTypeGeneric(response: response) as WorkerData
     }
 
     private func getWorkerDataGeneric(token: String) -> Observable<THcmWorker> {
@@ -27,9 +27,13 @@ public class HcmWorkerAuthService<THcmWorker: WorkerData>: HcmWorkerAuthServiceP
                 switch event {
                 case let .success(response):
                     self.parseAndPrintResponse(data: response.data)
-                    let workerData = self.parseResponseByHcmWorkerTypeGeneric(response: response.data)
-
-                    observer.onNext(workerData)
+                    do {
+                        let workerData = try self.parseResponseByHcmWorkerTypeGeneric(response: response.data)
+                        observer.onNext(workerData)
+                        observer.onCompleted()
+                    } catch {
+                        observer.onError(LoginParsingError.jsonParsingError("Error in parsing login response"))
+                    }
 
                 case let .error(error):
                     observer.onError(error)
@@ -40,18 +44,15 @@ public class HcmWorkerAuthService<THcmWorker: WorkerData>: HcmWorkerAuthServiceP
         }
     }
 
-    private func parseResponseByHcmWorkerTypeGeneric(response: Data) -> THcmWorker {
+    private func parseResponseByHcmWorkerTypeGeneric(response: Data) throws -> THcmWorker {
         do {
             guard let workerDataResponse = try? JSONDecoder().decode(THcmWorker.self, from: response) else {
-                throw LoginRequestParsingError.jsonParsingError("Error in parsing login response")
+                throw LoginParsingError.jsonParsingError("Error in parsing login response")
             }
 
             print("Login response parsed successfuly with the following data\(workerDataResponse)")
             return workerDataResponse as THcmWorker
 
-        } catch let error as NSError {
-            print("Failed to load worker data: \(error.localizedDescription)")
-            return WorkerData(hcmWorkerId: 0, dataAreaId: "") as! THcmWorker
         }
     }
 
