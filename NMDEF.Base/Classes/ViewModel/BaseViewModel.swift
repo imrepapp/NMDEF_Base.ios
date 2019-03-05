@@ -12,7 +12,25 @@ import RxCocoa
 import RxFlow
 
 public enum Message {
-    case alert(title: String, message: String)
+    case msgBox(title: String, message: String)
+    case alert(config: AlertConfig)
+}
+
+public struct AlertConfig {
+    var title: String?
+    var message: String?
+    var style: UIAlertController.Style = .alert
+    var actions: [UIAlertAction] = []
+
+    public init(title: String, message: String) {
+        self.init(title: title, message: message, actions: [UIAlertAction(title: "Ok", style: .default)])
+    }
+
+    public init(title: String, message: String, actions: [UIAlertAction]) {
+        self.title = title
+        self.message = message
+        self.actions = actions
+    }
 }
 
 open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible {

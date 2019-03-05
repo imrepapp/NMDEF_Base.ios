@@ -69,10 +69,17 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
 
         self.viewModel.presenterMessage += { [weak self] msg in
             switch (msg) {
-            case .alert(let title, let message):
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            case .alert(let config):
+                let alertController = UIAlertController(title: config.title, message: config.message, preferredStyle: config.style)
+
+                for var action in config.actions {
+                    alertController.addAction(action)
+                }
+
                 self?.present(alertController, animated: true)
+                break
+            case .msgBox(let title, let message):
+                self?.viewModel.presenterMessage.accept(.alert(config: AlertConfig(title: title, message: message)))
                 break
             default: print("\(msg) has not been implemented")
             }
