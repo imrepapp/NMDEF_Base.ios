@@ -5,7 +5,7 @@
 open class BaseSettings: BaseSettingsProtocol {
     private let defaults = BaseSettingsDefaults()
 
-    public var apiUrl: String {
+    open var apiUrl: String {
         fatalError("API url not defined.")
     }
     open var dataProviderUrl: String {
