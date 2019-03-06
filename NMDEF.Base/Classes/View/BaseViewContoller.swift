@@ -70,22 +70,26 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
         self.viewModel.presenterMessage += { [weak self] msg in
             switch (msg) {
             case .alert(let config):
-                let alertController = UIAlertController(title: config.title, message: config.message, preferredStyle: config.style)
-
-                for var action in config.actions {
-                    alertController.addAction(action)
-                }
-
-                self?.present(alertController, animated: true)
+                self?._showAlert(config: config)
                 break
             case .msgBox(let title, let message):
-                self?.viewModel.presenterMessage.accept(.alert(config: AlertConfig(title: title, message: message)))
+                self?._showAlert(config: AlertConfig(title: title, message: message))
                 break
             default: print("\(msg) has not been implemented")
             }
         } => self.disposeBag
 
         self._viewCouldBind.onNext(())
+    }
+
+    private func _showAlert(config: AlertConfig) {
+        let alertController = UIAlertController(title: config.title, message: config.message, preferredStyle: config.style)
+
+        for var action in config.actions {
+            alertController.addAction(action)
+        }
+
+        present(alertController, animated: true)
     }
 
     open override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
