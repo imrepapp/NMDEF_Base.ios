@@ -5,4 +5,5 @@
 public enum LoginParsingError: Error {
 
     case jsonParsingError(String)
+    case loginError(String)
 }
