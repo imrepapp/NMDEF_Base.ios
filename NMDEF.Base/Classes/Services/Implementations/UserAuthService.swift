@@ -18,8 +18,8 @@ public class UserAuthService : UserAuthServiceProtocol{
         return loginAuthServiceProtocol.selectConfig(id: id, sessionId: sessionId)
     }
 
-    public func getWorkerData(token: String) -> Observable<WorkerData> {
-       return hcmWorkerAuthServiceProtocol.getWorkerData(token: token)
+    public func getWorkerData() -> Observable<WorkerData> {
+       return hcmWorkerAuthServiceProtocol.getWorkerData()
     }
 
     public init(loginAuthServiceProtocol: LoginAuthServiceProtocol,

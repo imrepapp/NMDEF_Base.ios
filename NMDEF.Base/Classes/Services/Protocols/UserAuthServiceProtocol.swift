@@ -12,5 +12,5 @@ public protocol UserAuthServiceProtocol {
 
     func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse>
 
-    func getWorkerData(token: String) -> Observable<WorkerData>
+    func getWorkerData() -> Observable<WorkerData>
 }

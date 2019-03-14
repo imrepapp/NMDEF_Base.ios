@@ -12,8 +12,8 @@ public class HcmWorkerAuthService<THcmWorker: WorkerData>: HcmWorkerAuthServiceP
 
     }
 
-    public func getWorkerData(token: String) -> Observable<WorkerData> {
-        return getWorkerDataGeneric(token: token) as! Observable<WorkerData>
+    public func getWorkerData() -> Observable<WorkerData> {
+        return getWorkerDataGeneric(token: BaseAppDelegate.instance.token!) as! Observable<WorkerData>
     }
 
     public func parseResponseByHcmWorkerType(response: Data) throws -> WorkerData {
@@ -32,7 +32,7 @@ public class HcmWorkerAuthService<THcmWorker: WorkerData>: HcmWorkerAuthServiceP
                         observer.onNext(workerData)
                         observer.onCompleted()
                     } catch {
-                        observer.onError(LoginParsingError.jsonParsingError("Error in parsing login response"))
+                        observer.onError(error)
                     }
 
                 case let .error(error):
@@ -47,12 +47,14 @@ public class HcmWorkerAuthService<THcmWorker: WorkerData>: HcmWorkerAuthServiceP
     private func parseResponseByHcmWorkerTypeGeneric(response: Data) throws -> THcmWorker {
         do {
             guard let workerDataResponse = try? JSONDecoder().decode(THcmWorker.self, from: response) else {
+                let json = try JSONSerialization.jsonObject(with: response, options: []) as! [String: AnyObject]
+                if let msg = json["Message"] as? String {
+                    throw LoginParsingError.loginError(msg)
+                }
                 throw LoginParsingError.jsonParsingError("Error in parsing login response")
             }
-
-            print("Login response parsed successfuly with the following data\(workerDataResponse)")
+            print("Login response parsed successfully with the following data\(workerDataResponse)")
             return workerDataResponse as THcmWorker
-
         }
     }
 

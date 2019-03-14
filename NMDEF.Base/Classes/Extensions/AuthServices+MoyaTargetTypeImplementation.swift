@@ -58,12 +58,13 @@ extension AuthServices: TargetType {
     }
 
     public var headers: [String: String]? {
+        let deviceId = UIDevice.current.identifierForVendor!.uuidString
+
         switch self {
-        //TODO: Get device id and put inside the dictionary
         case .login, .selectConfig:
-            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123"]
+            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": deviceId]
         case .getWorkerData(let token):
-            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": "1234test123", "X-ZUMO-AUTH": token, "ZUMO-API-VERSION": "2.0.0"]
+            return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": deviceId, "X-ZUMO-AUTH": BaseAppDelegate.instance.token!, "ZUMO-API-VERSION": "2.0.0"]
         }
     }
 }

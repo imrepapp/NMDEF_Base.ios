@@ -6,7 +6,7 @@ import RxSwift
 
 public protocol HcmWorkerAuthServiceProtocol {
 
-    func getWorkerData(token: String) -> Observable<WorkerData>
+    func getWorkerData() -> Observable<WorkerData>
 
     func parseResponseByHcmWorkerType(response: Data) throws -> WorkerData
 }

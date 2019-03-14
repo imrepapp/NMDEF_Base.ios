@@ -35,6 +35,7 @@ public struct AlertConfig {
 
 open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible {
     public let title = BehaviorRelay<String?>(value: nil)
+    public var isLoading = BehaviorRelay<Bool>(value: false)
     let presenterMessage = PublishRelay<Message>()
     let goBackMessage = PublishRelay<Void>()
 
