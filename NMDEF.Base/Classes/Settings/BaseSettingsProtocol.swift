@@ -2,6 +2,8 @@
 // Created by Papp Imre on 2019-02-20.
 //
 
+public protocol SettingKeys: RawRepresentable {
+}
 
 public protocol BaseSettingsProtocol: BaseSettingsConstants, BaseSettingsVariables {
 }

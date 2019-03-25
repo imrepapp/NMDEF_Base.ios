@@ -5,6 +5,13 @@
 open class BaseSettings: BaseSettingsProtocol {
     private let defaults = BaseSettingsDefaults()
 
+    private enum Keys: String, SettingKeys {
+        case USER_AUTH_CONTEXT
+        case AUTO_LOGIN_ENABLED
+        case REMEMBER_ME
+        case SYNC_CONFIG
+    }
+
     open var apiUrl: String {
         fatalError("API url not defined.")
     }
@@ -32,12 +39,73 @@ open class BaseSettings: BaseSettingsProtocol {
         return "\(appVersion) - \(config)"
     }
 
-    public var userAuthContext: UserAuthContext? = nil
-    public var autoLoginEnabled: Bool = false
-    public var rememberMe: Bool = false
-    public var syncConfig: SynchronizationConfig
+    public var userAuthContext: UserAuthContext? {
+        get {
+            return loadObject(Keys.USER_AUTH_CONTEXT, default: defaults.userAuthContext)
+        }
+        set {
+            storeObject(Keys.USER_AUTH_CONTEXT, value: newValue)
+        }
+    }
+    public var autoLoginEnabled: Bool {
+        get {
+            return loadPrimitive(Keys.AUTO_LOGIN_ENABLED, default: defaults.autoLoginEnabled)
+        }
+        set {
+            storePrimitive(Keys.AUTO_LOGIN_ENABLED, value: newValue)
+        }
+
+    }
+    public var rememberMe: Bool {
+        get {
+            return loadPrimitive(Keys.REMEMBER_ME, default: defaults.rememberMe)
+        }
+        set {
+            storePrimitive(Keys.REMEMBER_ME, value: newValue)
+        }
+
+    }
+    public var syncConfig: SynchronizationConfig {
+        get {
+            return loadObject(Keys.SYNC_CONFIG, default: defaults.syncConfig)
+        }
+        set {
+            storeObject(Keys.SYNC_CONFIG, value: newValue)
+        }
+    }
 
     public required init() {
         syncConfig = defaults.syncConfig
+    }
+
+    public func storePrimitive<K, T>(_ key: K, value: T) where K: SettingKeys, K.RawValue == String {
+        UserDefaults.standard.set(value, forKey: key.rawValue)
+    }
+
+    public func loadPrimitive<K, T>(_ key: K, default defaultValue: T) -> T where K: SettingKeys, K.RawValue == String {
+        return UserDefaults.standard.object(forKey: key.rawValue) as? T ?? defaultValue
+    }
+
+    public func storeObject<K, T>(_ key: K, value: T) where T: Codable, K: SettingKeys, K.RawValue == String {
+        let jsonEncoder = JSONEncoder()
+        do {
+            let data = try jsonEncoder.encode(value)
+            UserDefaults.standard.set(data, forKey: key.rawValue)
+        } catch {
+            print("can't store the object with key: \(key.rawValue)")
+        }
+    }
+
+    public func loadObject<K, T>(_ key: K, default defaultValue: T) -> T where T: Codable, K: SettingKeys, K.RawValue == String {
+        guard let data = UserDefaults.standard.object(forKey: key.rawValue) as? Data else {
+            return defaultValue
+        }
+        let jsonDecoder = JSONDecoder()
+        do {
+            let value = try jsonDecoder.decode(T.self, from: data)
+            return value
+        } catch {
+            return defaultValue
+        }
     }
 }

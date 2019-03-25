@@ -3,6 +3,6 @@
 // Copyright (c) 2019 CocoaPods. All rights reserved.
 //
 
-public enum ReconnectMethod {
+public enum ReconnectMethod : String, Codable {
     case NONE, ASK, IF_WIFI, ALWAYS
 }

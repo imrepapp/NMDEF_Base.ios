@@ -2,9 +2,7 @@
 // Created by Róbert PAPP on 2019-02-15.
 //
 
-import Foundation
-
-public class Configuration: Decodable {
+public class Configuration: Codable {
 
     public var name: String
 

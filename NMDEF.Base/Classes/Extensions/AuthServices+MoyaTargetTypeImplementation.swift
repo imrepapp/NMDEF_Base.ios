@@ -63,7 +63,7 @@ extension AuthServices: TargetType {
         switch self {
         case .login, .selectConfig:
             return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": deviceId]
-        case .getWorkerData(let token):
+        case .getWorkerData:
             return ["Content-type": "application/x-www-form-urlencoded", "DeviceId": deviceId, "X-ZUMO-AUTH": BaseAppDelegate.instance.token!, "ZUMO-API-VERSION": "2.0.0"]
         }
     }

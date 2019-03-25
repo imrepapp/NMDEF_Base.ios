@@ -2,9 +2,7 @@
 // Created by Róbert PAPP on 2019-02-15.
 //
 
-import Foundation
-
-public class UserAuthContext {
+public class UserAuthContext: Codable {
     var hcmWorker: CLong?
 
     var password: String

@@ -54,7 +54,7 @@ class Nav1ViewModel: BaseViewModel {
     private func callLoginService(request: LoginRequest) {
 
         let userAuthService = AppDelegate.instance.container.resolve(UserAuthServiceProtocol.self)
-
+/*
         userAuthService!.login(request: request)
                 .flatMap { response -> Observable<LoginResponse> in
                     if (response.configs.count > 1) {
@@ -84,5 +84,6 @@ class Nav1ViewModel: BaseViewModel {
                         print("error")
                     }
                 }) => self.disposeBag
+*/
     }
 }
