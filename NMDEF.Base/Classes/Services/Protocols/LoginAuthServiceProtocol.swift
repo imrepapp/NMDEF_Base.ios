@@ -9,9 +9,7 @@ public protocol LoginAuthServiceProtocol {
 
     var provider: MoyaProvider<AuthServices> { get set}
 
-    func login(request: LoginRequest) -> Observable<LoginResponse>
+    func login(request: LoginRequest) -> Single<LoginResponse>
 
-    func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse>
-
-    func parseResponseByResponseType(response: Data) throws -> LoginResponse
+    func selectConfig(id: Int, sessionId: String) -> Single<LoginResponse>
 }

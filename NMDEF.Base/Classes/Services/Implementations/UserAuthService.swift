@@ -10,15 +10,15 @@ public class UserAuthService : UserAuthServiceProtocol{
     public var loginAuthServiceProtocol: LoginAuthServiceProtocol
     public var hcmWorkerAuthServiceProtocol: HcmWorkerAuthServiceProtocol
 
-    public func login(request: LoginRequest) -> Observable<LoginResponse> {
+    public func login(request: LoginRequest) -> Single<LoginResponse> {
         return loginAuthServiceProtocol.login(request: request)
     }
 
-    public func selectConfig(id: Int, sessionId: String) -> Observable<LoginResponse> {
+    public func selectConfig(id: Int, sessionId: String) -> Single<LoginResponse> {
         return loginAuthServiceProtocol.selectConfig(id: id, sessionId: sessionId)
     }
 
-    public func getWorkerData() -> Observable<WorkerData> {
+    public func getWorkerData() -> Single<WorkerData> {
        return hcmWorkerAuthServiceProtocol.getWorkerData()
     }
 
@@ -26,11 +26,6 @@ public class UserAuthService : UserAuthServiceProtocol{
                 hcmWorkerAuthServiceProtocol: HcmWorkerAuthServiceProtocol) {
         self.loginAuthServiceProtocol = loginAuthServiceProtocol
         self.hcmWorkerAuthServiceProtocol = hcmWorkerAuthServiceProtocol
-    }
-
-    private func parseAndPrintResponse(data: Data) {
-        let encodedResponse = String(data: data, encoding: .utf8)
-        print(encodedResponse ?? "No data received from server")
     }
 }
 

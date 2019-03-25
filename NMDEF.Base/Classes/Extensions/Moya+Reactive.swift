@@ -6,9 +6,9 @@ import Moya
 import RxSwift
 
 public extension Reactive where Base: MoyaProviderType {
-    public func send<T: Decodable>(_ token: Base.Target, callbackQueue: DispatchQueue? = nil) -> Single<T> {
+    public func send<T: Decodable>(_ target: Base.Target, callbackQueue: DispatchQueue? = nil) -> Single<T> {
         return Single<T>.create { [weak base] single in
-            let cancellableToken = base?.request(token, callbackQueue: callbackQueue, progress: nil) { result in
+            let cancellableToken = base?.request(target, callbackQueue: callbackQueue, progress: nil) { result in
                 switch result {
                 case let .success(response):
                     do {
