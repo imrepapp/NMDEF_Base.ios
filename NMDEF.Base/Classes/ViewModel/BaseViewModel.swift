@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RxFlow
+import RxReachability
+import Reachability
 
 public enum Message {
     case msgBox(title: String, message: String)
@@ -39,7 +41,18 @@ open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible 
     let presenterMessage = PublishRelay<Message>()
     let goBackMessage = PublishRelay<Void>()
 
+    public var reachability: Reachability?
+
     required public init() {
+    }
+
+    public func initReachabilityNotifier(){
+        try? reachability?.startNotifier()
+        bindReachability()
+    }
+
+    public func stopReachabilityNotifier(){
+        reachability?.stopNotifier()
     }
 
     public func send(message: Message) {
@@ -52,5 +65,37 @@ open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible 
 
     open func instantiate(with params: Parameters) {
         print("NMDEF: unused parameters (\(params)) in \(self) class.")
+    }
+
+    private func bindReachability() {
+        reachability?.rx.reachabilityChanged
+                .subscribe(onNext: { reachability in
+                    print("Reachability changed: \(reachability.connection)")
+                })
+                .disposed(by: disposeBag)
+
+        reachability?.rx.status
+                .subscribe(onNext: {status in
+                    print("Reachability status changed: \(status)")
+                })
+                .disposed(by: disposeBag)
+
+        reachability?.rx.isReachable
+                .subscribe(onNext: {isReachable in
+                    print("Is reachable: \(isReachable)")
+                })
+                .disposed(by: disposeBag)
+
+        reachability?.rx.isConnected
+                .subscribe(onNext: {
+                    print("Is connected")
+                })
+                .disposed(by: disposeBag)
+
+        reachability?.rx.isDisconnected
+                .subscribe(onNext: {
+                    print("Is disconnected")
+                })
+                .disposed(by: disposeBag)
     }
 }

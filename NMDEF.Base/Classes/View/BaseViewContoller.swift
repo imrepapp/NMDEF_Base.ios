@@ -12,6 +12,7 @@ import RxCocoa
 import RxFlow
 import RxViewController
 import Reusable
+import Reachability
 
 public protocol BaseViewControllerProtocol: BindableViewController, HasViewModel, StoryboardSceneBased {
 }
@@ -36,10 +37,12 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
         self.rx.viewDidLoad += { _ in
             self.setupBindings()
             self.viewModel.rx.viewCreated.onNext(())
+            self.viewModel.reachability = Reachability()
         } => self.disposeBag
 
         self.rx.viewWillAppear += { _ in
             self.viewModel.rx.viewAppearing.onNext(())
+            self.viewModel.initReachabilityNotifier()
         } => self.disposeBag
 
         self.rx.viewDidAppear += { _ in
@@ -48,6 +51,7 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
 
         self.rx.viewWillDisappear += { _ in
             self.viewModel.rx.viewDisappearing.onNext(())
+            self.viewModel.stopReachabilityNotifier()
         } => self.disposeBag
 
         self.rx.viewDidDisappear += { _ in
