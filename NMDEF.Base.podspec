@@ -30,5 +30,6 @@ Pod::Spec.new do |s|
   s.dependency 'Moya' , '~> 12.0'
   s.dependency 'Moya/RxSwift' , '~> 12.0'
   s.dependency 'Swinject'
-  s.dependency 'Spry'	
+  s.dependency 'Spry'
+  s.dependency 'RxReachability'
 end
