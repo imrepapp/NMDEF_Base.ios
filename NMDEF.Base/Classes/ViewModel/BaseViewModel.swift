@@ -46,12 +46,12 @@ open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible 
     required public init() {
     }
 
-    public func initReachabilityNotifier(){
+    public func initReachabilityNotifier() {
         try? reachability?.startNotifier()
         bindReachability()
     }
 
-    public func stopReachabilityNotifier(){
+    public func stopReachabilityNotifier() {
         reachability?.stopNotifier()
     }
 
@@ -75,13 +75,13 @@ open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible 
                 .disposed(by: disposeBag)
 
         reachability?.rx.status
-                .subscribe(onNext: {status in
+                .subscribe(onNext: { status in
                     print("Reachability status changed: \(status)")
                 })
                 .disposed(by: disposeBag)
 
         reachability?.rx.isReachable
-                .subscribe(onNext: {isReachable in
+                .subscribe(onNext: { isReachable in
                     print("Is reachable: \(isReachable)")
                 })
                 .disposed(by: disposeBag)
@@ -94,6 +94,9 @@ open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible 
 
         reachability?.rx.isDisconnected
                 .subscribe(onNext: {
+                    self.send(message: .alert(config: AlertConfig(title: "No Network is available", message: "Your connection status changed to offline", actions: [
+                        UIAlertAction(title: "Ok", style: .default, handler: { alert in
+                        })])))
                     print("Is disconnected")
                 })
                 .disposed(by: disposeBag)
