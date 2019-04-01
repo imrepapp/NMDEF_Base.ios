@@ -45,8 +45,13 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
             BaseAppDelegate.instance.setToken(newValue)
         }
     }
+
     public static var userAuthService: UserAuthService {
-        return self.instance.container.resolve(UserAuthServiceProtocol.self) as! UserAuthService
+       return self.instance.container.resolve(UserAuthServiceProtocol.self) as! UserAuthService
+    }
+
+    public static var networkManager: NetworkManager {
+        return self.instance.container.resolve(NetworkManagerProtocol.self) as! NetworkManager
     }
 
     public lazy var container: Container = {
