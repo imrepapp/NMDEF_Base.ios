@@ -41,6 +41,10 @@ public func --><T>(variable: BehaviorRelay<T>, property: Binder<T>) -> Disposabl
     return variable.asObservable().bind(to: property)
 }
 
+public func --><T>(variable: ComputedBehaviorRelay<T>, property: Binder<T>) -> Disposable {
+    return variable.asObservable().bind(to: property)
+}
+
 public func --><TView: BindableView>(model: TView.Model, view: TView) {
     view.bind(model)
 }

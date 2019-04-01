@@ -16,3 +16,7 @@ extension BehaviorRelay {
         }
     }
 }
+
+extension ComputedBehaviorRelay {
+    public var val: Element { return self.value }
+}
