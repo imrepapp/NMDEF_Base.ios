@@ -13,7 +13,7 @@ public class NetworkManager: NetworkManagerProtocol {
 
     var networkIsReachable: Bool = false
 
-    var currectStatus: Reachability.Connection = Reachability.Connection.none
+    var currentStatus: Reachability.Connection = Reachability.Connection.none
 
     public init() {
         // Initialise reachability
@@ -37,7 +37,7 @@ public class NetworkManager: NetworkManagerProtocol {
 
     // Current network status
     public func getActualConnection() -> Reachability.Connection {
-        return currectStatus
+        return currentStatus
     }
 
     func bindReachability() {
