@@ -6,13 +6,13 @@ import Moya
 import RxSwift
 
 public extension Reactive where Base: MoyaProviderType {
-    public func send<T: Decodable>(_ target: Base.Target, callbackQueue: DispatchQueue? = nil) -> Single<T> {
+    func send<T: Decodable>(_ target: Base.Target, callbackQueue: DispatchQueue? = nil) -> Single<T> {
         return Single<T>.create { [weak base] single in
             let cancellableToken = base?.request(target, callbackQueue: callbackQueue, progress: nil) { result in
                 switch result {
                 case let .success(response):
                     do {
-                        single(.success(try (response as! Moya.Response).data.parse(T.self)))
+                        single(.success(try (response as Moya.Response).data.parse(T.self)))
                     } catch {
                         single(.error(error))
                     }
@@ -33,7 +33,7 @@ public enum Parsing: Error {
 }
 
 public extension Data {
-    public func parse<T: Decodable>(_ type: T.Type) throws -> T {
+    func parse<T: Decodable>(_ type: T.Type) throws -> T {
         do {
             guard let response = try? JSONDecoder().decode(T.self, from: self) else {
                 let json = try JSONSerialization.jsonObject(with: self, options: []) as! [String: AnyObject]
@@ -43,7 +43,7 @@ public extension Data {
                 throw Parsing.error(msg: "Error while parsing JSON: \(String(data: self, encoding: .utf8))")
             }
 
-            return response as! T
+            return response as T
         } catch {
             throw Parsing.error(msg: error.localizedDescription)
         }

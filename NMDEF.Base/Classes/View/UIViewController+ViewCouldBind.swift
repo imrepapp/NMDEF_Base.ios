@@ -14,7 +14,7 @@ public protocol BindableViewController: AnyObject {
 }
 
 public extension Reactive where Base: UIViewController & BindableViewController {
-    public var viewCouldBind: ControlEvent<Void> {
+    var viewCouldBind: ControlEvent<Void> {
         return ControlEvent(events: self.base._viewCouldBind)
     }
 }
