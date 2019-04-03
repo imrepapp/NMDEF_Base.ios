@@ -5,7 +5,7 @@
 import RxFlow
 
 public extension Step {
-    public func toString() -> String {
+    func toString() -> String {
         return "\(self)"
     }
 }

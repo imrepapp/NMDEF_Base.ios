@@ -75,7 +75,7 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
             case .msgBox(let title, let message):
                 self?._showAlert(config: AlertConfig(title: title, message: message))
                 break
-            default: print("\(msg) has not been implemented")
+
             }
         } => self.disposeBag
 

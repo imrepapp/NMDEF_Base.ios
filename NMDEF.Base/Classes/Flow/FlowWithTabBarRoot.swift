@@ -82,7 +82,7 @@ public extension FlowWithTabBarRoot where Self: BaseFlow {
         return .multiple(flowItems: nextFlowItems)
     }
 
-    public var rootViewController: UITabBarController {
+    var rootViewController: UITabBarController {
         return self.synchronized {
             if let tabBar = objc_getAssociatedObject(self, &tabBarContext) as? UITabBarController {
                 return tabBar

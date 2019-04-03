@@ -27,7 +27,7 @@ open class BaseSettings: BaseSettingsProtocol {
 
     public var reactName: String? {
         if self.userAuthContext != nil && self.userAuthContext?.selectedConfig?.id != nil && self.userAuthContext?.hcmWorker != nil {
-            return "NS\(self.userAuthContext?.selectedConfig?.id)-\(self.userAuthContext?.hcmWorker).react"
+            return "NS\(self.userAuthContext?.selectedConfig?.id ?? 0)-\(self.userAuthContext?.hcmWorker ?? 0).react"
         }
         return nil
     }

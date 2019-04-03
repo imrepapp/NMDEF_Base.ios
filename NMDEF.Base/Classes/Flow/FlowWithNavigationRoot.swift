@@ -23,7 +23,7 @@ public extension FlowWithNavigationRoot where Self: BaseFlow {
         return root
     }
 
-    public var rootViewController: UINavigationController {
+    var rootViewController: UINavigationController {
         return self.synchronized {
             if let nav = objc_getAssociatedObject(self, &navigationContext) as? UINavigationController {
                 return nav
@@ -34,7 +34,7 @@ public extension FlowWithNavigationRoot where Self: BaseFlow {
         }
     }
 
-    public func pushNavigation<TViewController>(to viewControllerClass: TViewController.Type, animated: Bool = true, params: Parameters? = nil) -> NextFlowItems
+    func pushNavigation<TViewController>(to viewControllerClass: TViewController.Type, animated: Bool = true, params: Parameters? = nil) -> NextFlowItems
             where TViewController: UIViewController & BaseViewControllerProtocol, TViewController.TViewModel: Stepper {
         let vc = viewControllerClass.instantiate()
         if (params != nil) {
