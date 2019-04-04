@@ -23,10 +23,11 @@ public class NetworkManager: NetworkManagerProtocol {
 
     public func initReachabilityNotifier() {
         try? reachability?.startNotifier()
+        bindReachability()
     }
 
     public func stopReachabilityNotifier() {
-        reachability?.stopNotifier()
+       reachability?.stopNotifier()
     }
 
     // Network is reachable
