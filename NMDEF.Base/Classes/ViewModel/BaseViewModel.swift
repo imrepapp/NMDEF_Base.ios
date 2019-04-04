@@ -40,6 +40,13 @@ open class BaseViewModel: ViewModel, Stepper, HasDisposeBag, ReactiveCompatible 
     let goBackMessage = PublishRelay<Void>()
 
     required public init() {
+        BaseAppDelegate.networkManager.isNetworkAvailable += { isNetworkAvailable_ in
+            if !isNetworkAvailable_ {
+                self.send(message: .alert(config: AlertConfig(title: "No Network is available", message: "Your connection status changed to offline", actions: [
+                    UIAlertAction(title: "Ok", style: .default, handler: { alert in
+                    })])))
+            }
+        } => disposeBag
     }
 
     public func send(message: Message) {

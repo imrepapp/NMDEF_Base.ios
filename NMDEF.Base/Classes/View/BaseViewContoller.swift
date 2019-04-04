@@ -40,6 +40,7 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
 
         self.rx.viewWillAppear += { _ in
             self.viewModel.rx.viewAppearing.onNext(())
+            BaseAppDelegate.networkManager.initReachabilityNotifier()
         } => self.disposeBag
 
         self.rx.viewDidAppear += { _ in
@@ -48,6 +49,7 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
 
         self.rx.viewWillDisappear += { _ in
             self.viewModel.rx.viewDisappearing.onNext(())
+            BaseAppDelegate.networkManager.stopReachabilityNotifier()
         } => self.disposeBag
 
         self.rx.viewDidDisappear += { _ in
