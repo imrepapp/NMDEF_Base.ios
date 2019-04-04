@@ -12,6 +12,7 @@ import RxCocoa
 import RxFlow
 import RxViewController
 import Reusable
+import UserNotifications
 
 public protocol BaseViewControllerProtocol: BindableViewController, HasViewModel, StoryboardSceneBased {
 }
@@ -36,6 +37,11 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
         self.rx.viewDidLoad += { _ in
             self.setupBindings()
             self.viewModel.rx.viewCreated.onNext(())
+
+            // #1.1 - Create "the notification's category value--its type."
+            let noNetworkIsAvailableNotifCategory = UNNotificationCategory(identifier: "noNetworkIsAvailableNotification", actions: [], intentIdentifiers: [], options: [])
+            // #1.2 - Register the notification type.
+            UNUserNotificationCenter.current().setNotificationCategories([noNetworkIsAvailableNotifCategory])
         } => self.disposeBag
 
         self.rx.viewWillAppear += { _ in
