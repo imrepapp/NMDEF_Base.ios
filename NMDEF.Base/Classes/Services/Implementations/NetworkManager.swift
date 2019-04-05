@@ -11,7 +11,7 @@ public class NetworkManager: NetworkManagerProtocol {
 
     var reachability: Reachability!
     let disposeBag = DisposeBag()
-    public var isNetworkAvailable = BehaviorRelay<Bool>(value: false)
+    public var isNetworkAvailable = BehaviorRelay<Bool>(value: true)
     public var networkIsReachable: Bool = false
 
     var currentStatus: Reachability.Connection = Reachability.Connection.none
