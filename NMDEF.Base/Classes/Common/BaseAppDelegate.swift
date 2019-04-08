@@ -13,6 +13,7 @@ import UIKit
 import RxSwift
 import RxFlow
 import Swinject
+import NMDEF_Base
 
 public protocol BaseAppDelegateProtocol {
     var settings: BaseSettings { get }
@@ -47,7 +48,7 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
     }
 
     public static var userAuthService: UserAuthService {
-       return self.instance.container.resolve(UserAuthServiceProtocol.self) as! UserAuthService
+        return self.instance.container.resolve(UserAuthServiceProtocol.self) as! UserAuthService
     }
 
     public static var networkManager: NetworkManager {
@@ -64,6 +65,7 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
         return self.container.resolve(BaseApi.self)!
     }
     public var token: String? = nil
+
     public func setToken(_ token: String) {
         self.token = token
     }

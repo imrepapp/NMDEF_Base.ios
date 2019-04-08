@@ -7,7 +7,7 @@ import Moya
 extension AuthServices: TargetType {
     public var baseURL: URL {
         //TODO: Get the baseUrl from settings
-        return URL(string: "https://mobile-demo.xapt.com/env/dev/0338/nmdef/rental")!
+        return URL(string: BaseAppDelegate.instance.settings.apiUrl)!
     }
 
     public var path: String {

@@ -3,19 +3,32 @@
 //
 
 public class UserAuthContext: Codable {
-    var hcmWorker: CLong?
-
-    var password: String
+    private var _hcmWorker: CLong?
+    private var _dataAreaId: String?
 
     public var selectedConfig: Configuration?
+    public var userIdentifier: String
+    public var password: String
 
-    var userIdentifier: String
+    public var hcmWorkerId: CLong {
+        get {
+            return _hcmWorker ?? 0
+        }
+        set {
+            _hcmWorker = newValue
+        }
+    }
 
-    var dataAreaId: String?
+    public var dataAreaId: String {
+        get {
+            return _dataAreaId ?? ""
+        }
+        set {
+            _dataAreaId = newValue
+        }
+    }
 
-    var currentUserId: String?
-
-    init(userIdentifier: String, password: String) {
+    public init(userIdentifier: String, password: String) {
         self.userIdentifier = userIdentifier
         self.password = password
     }
