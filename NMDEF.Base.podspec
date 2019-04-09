@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
   s.dependency 'Swinject'
   s.dependency 'Spry'
   s.dependency 'RxReachability'
+  s.dependency 'RxKeyboard'
 end
