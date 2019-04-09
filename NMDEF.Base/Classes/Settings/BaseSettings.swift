@@ -4,6 +4,7 @@
 
 open class BaseSettings: BaseSettingsProtocol {
     private let defaults = BaseSettingsDefaults()
+    private var cache: [String: Any] = [:]
 
     private enum Keys: String, SettingKeys {
         case USER_AUTH_CONTEXT
@@ -75,7 +76,6 @@ open class BaseSettings: BaseSettingsProtocol {
     }
 
     public required init() {
-        syncConfig = defaults.syncConfig
     }
 
     public func storePrimitive<K, T>(_ key: K, value: T) where K: SettingKeys, K.RawValue == String {
@@ -89,23 +89,28 @@ open class BaseSettings: BaseSettingsProtocol {
     public func storeObject<K, T>(_ key: K, value: T) where T: Codable, K: SettingKeys, K.RawValue == String {
         let jsonEncoder = JSONEncoder()
         do {
-            let data = try jsonEncoder.encode(value)
-            UserDefaults.standard.set(data, forKey: key.rawValue)
+            UserDefaults.standard.set(try jsonEncoder.encode(value), forKey: key.rawValue)
+            //clear from cache
+            self.cache.removeValue(forKey: key.rawValue);
         } catch {
             print("can't store the object with key: \(key.rawValue)")
         }
     }
 
     public func loadObject<K, T>(_ key: K, default defaultValue: T) -> T where T: Codable, K: SettingKeys, K.RawValue == String {
-        guard let data = UserDefaults.standard.object(forKey: key.rawValue) as? Data else {
-            return defaultValue
+        guard let cached = cache[key.rawValue] else {
+            guard let data = UserDefaults.standard.object(forKey: key.rawValue) as? Data else {
+                print("object with key: \(key.rawValue) can't cast to Data type")
+                return defaultValue
+            }
+            let jsonDecoder = JSONDecoder()
+            do {
+                return try jsonDecoder.decode(T.self, from: data)
+            } catch {
+                print("can't load the object with key: \(key.rawValue)")
+                return defaultValue
+            }
         }
-        let jsonDecoder = JSONDecoder()
-        do {
-            let value = try jsonDecoder.decode(T.self, from: data)
-            return value
-        } catch {
-            return defaultValue
-        }
+        return cached as! T
     }
 }

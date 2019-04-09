@@ -33,8 +33,9 @@ class Nav2ViewModel: BaseViewModel {
             AppDelegate.settings.exampleVar = self.exampleVar.val!
 
             AppDelegate.settings.rememberMe = self.rememberMe.val
-            //AppDelegate.settings.userAuthContext = self.userAuthContext.val!
             AppDelegate.settings.autoLoginEnabled = self.autoLoginEnabled.val
+
+            //AppDelegate.settings.userAuthContext = self.userAuthContext.val!
 
             AppDelegate.settings.syncConfig = SynchronizationConfig(
                     automatic: self.configAutomatic.val,
@@ -44,7 +45,6 @@ class Nav2ViewModel: BaseViewModel {
                     intervalPartSec: self.configIntervalPartSec.val,
                     reconnectMethod: self.configReconnectMethod.val
             )
-
         } => self.disposeBag
     }
 }
