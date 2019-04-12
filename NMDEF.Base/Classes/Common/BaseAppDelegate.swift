@@ -84,6 +84,10 @@ open class BaseAppDelegate<TSettings: BaseSettings, TApi: BaseApi>: UIResponder,
         self.initialStep = step
 
         super.init();
+
+        container.register(NetworkManagerProtocol.self) { _ in
+            NetworkManager()
+        }.inObjectScope(.container)
     }
 
     open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
