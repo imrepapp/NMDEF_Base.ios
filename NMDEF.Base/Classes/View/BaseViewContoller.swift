@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxFlow
 import RxViewController
+import RxKeyboard
 import Reusable
 import UserNotifications
 
@@ -18,6 +19,8 @@ public protocol BaseViewControllerProtocol: BindableViewController, HasViewModel
 }
 
 open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, BaseViewControllerProtocol {
+    @IBOutlet public weak var scrollView: UIScrollView!
+
     public static var sceneStoryboard: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
     }
@@ -42,27 +45,46 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
             let noNetworkIsAvailableNotifCategory = UNNotificationCategory(identifier: "noNetworkIsAvailableNotification", actions: [], intentIdentifiers: [], options: [])
             // #1.2 - Register the notification type.
             UNUserNotificationCenter.current().setNotificationCategories([noNetworkIsAvailableNotifCategory])
+
+            RxKeyboard.instance.visibleHeight
+                    .drive(onNext: { [weak self] keyboardVisibleHeight in
+                        guard let `self` = self else {
+                            return
+                        }
+
+                        guard let sv = self.scrollView else {
+                            return
+                        }
+
+                        self.scrollView.contentOffset.y += keyboardVisibleHeight
+                    })
+                    .disposed(by: self.disposeBag)
         } => self.disposeBag
 
-        self.rx.viewWillAppear += { _ in
+        self.rx.viewWillAppear += {
+            _ in
             self.viewModel.rx.viewAppearing.onNext(())
             BaseAppDelegate.networkManager.initReachabilityNotifier()
         } => self.disposeBag
 
-        self.rx.viewDidAppear += { _ in
+        self.rx.viewDidAppear += {
+            _ in
             self.viewModel.rx.viewAppeared.onNext(())
         } => self.disposeBag
 
-        self.rx.viewWillDisappear += { _ in
+        self.rx.viewWillDisappear += {
+            _ in
             self.viewModel.rx.viewDisappearing.onNext(())
             BaseAppDelegate.networkManager.stopReachabilityNotifier()
         } => self.disposeBag
 
-        self.rx.viewDidDisappear += { _ in
+        self.rx.viewDidDisappear += {
+            _ in
             self.viewModel.rx.viewDisappeared.onNext(())
         } => self.disposeBag
 
-        self.rx.isDismissing += { _ in
+        self.rx.isDismissing += {
+            _ in
             self.viewModel.rx.viewDestroy.onNext(())
         } => self.disposeBag
     }
