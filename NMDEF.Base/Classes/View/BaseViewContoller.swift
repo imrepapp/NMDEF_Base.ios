@@ -21,6 +21,8 @@ public protocol BaseViewControllerProtocol: BindableViewController, HasViewModel
 open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, BaseViewControllerProtocol {
     @IBOutlet public weak var scrollView: UIScrollView!
 
+    private var _scrollViewOrigY: CGFloat = 0
+
     public static var sceneStoryboard: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
     }
@@ -46,6 +48,10 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
             // #1.2 - Register the notification type.
             UNUserNotificationCenter.current().setNotificationCategories([noNetworkIsAvailableNotifCategory])
 
+            if let sv = self.scrollView {
+                self._scrollViewOrigY = self.scrollView.contentOffset.y
+            }
+
             RxKeyboard.instance.visibleHeight
                     .drive(onNext: { [weak self] keyboardVisibleHeight in
                         guard let `self` = self else {
@@ -56,7 +62,11 @@ open class BaseViewController<TViewModel: BaseViewModel>: UIViewController, Base
                             return
                         }
 
-                        self.scrollView.contentOffset.y += keyboardVisibleHeight
+                        if keyboardVisibleHeight > 0 {
+                            self.scrollView.contentOffset.y += keyboardVisibleHeight
+                        } else {
+                            self.scrollView.contentOffset.y = self._scrollViewOrigY
+                        }
                     })
                     .disposed(by: self.disposeBag)
         } => self.disposeBag
