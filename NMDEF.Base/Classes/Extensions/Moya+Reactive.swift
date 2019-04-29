@@ -26,6 +26,23 @@ public extension Reactive where Base: MoyaProviderType {
             }
         }
     }
+
+    func execute(_ target: Base.Target, callbackQueue: DispatchQueue? = nil) -> Completable {
+        return Completable.create { completable in
+            let cancellableToken = self.base.request(target, callbackQueue: callbackQueue, progress: nil) { result in
+                switch result {
+                case let .success(response):
+                    completable(.completed)
+                case let .failure(error):
+                    completable(.error(error))
+                }
+            }
+
+            return Disposables.create {
+                cancellableToken.cancel()
+            }
+        }
+    }
 }
 
 public enum Parsing: Error {
