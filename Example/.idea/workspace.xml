@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e6ba7ac-ed74-4759-bf58-a7d8177e9203" name="Default Changelist" comment="BaseViewModel Rx events">
+    <list default="true" id="8e6ba7ac-ed74-4759-bf58-a7d8177e9203" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NMDEF.Base.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NMDEF.Base/UI/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base/UI/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav2ViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav2ViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NMDEF.Base/Classes/Common/BaseAppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../NMDEF.Base/Classes/Common/BaseAppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NMDEF.Base/Classes/Settings/BaseSettings.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../NMDEF.Base/Classes/Settings/BaseSettings.swift" afterDir="false" />
     </list>
     <ignored path="Podfile.lock" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,31 +19,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Settings/BaseSettings.swift">
+        <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Common/BaseAppDelegate.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="743">
-              <caret line="116" selection-start-line="116" selection-end-line="116" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Podfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="480">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav2ViewModel.swift">
+        <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/BaseFlow.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
-              <folding>
-                <element signature="e#100#117#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="361">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/FlowWithNavigationRoot.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-312">
+              <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/FlowWithSinglePageRoot.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="12" column="50" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -78,6 +79,7 @@
       <find>NetworkManagerProtocol</find>
       <find>storeObject</find>
       <find>NEW CONFIG</find>
+      <find>where</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,7 +120,6 @@
         <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/Services/Protocols/HcmWorkerAuthServiceProtocol.swift" />
         <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/Services/Implementations/LoginAuthService.swift" />
         <option value="$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav1ViewModel.swift" />
-        <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/Extensions/AuthServices+MoyaTargetTypeImplementation.swift" />
         <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/Settings/BaseSettingsProtocol.swift" />
         <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/Model/ReconnectMethod.swift" />
         <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/ViewModel/HasViewModel.swift" />
@@ -138,10 +139,11 @@
         <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/View/BaseViewContoller.swift" />
         <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/Settings/BaseSettings.swift" />
         <option value="$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav2ViewModel.swift" />
+        <option value="$PROJECT_DIR$/../NMDEF.Base/Classes/Extensions/AuthServices+MoyaTargetTypeImplementation.swift" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="981" />
@@ -165,23 +167,6 @@
             </path>
             <path>
               <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="NMDEF.Base" type="1d218c8b:XcodeProjectNode" />
-              <item name="Example for NMDEF.Base" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="NMDEF.Base" type="1d218c8b:XcodeProjectNode" />
-              <item name="Example for NMDEF.Base" type="fcab9f18:XcodeViewNode" />
-              <item name="Flows" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="NMDEF.Base" type="1d218c8b:XcodeProjectNode" />
-              <item name="Example for NMDEF.Base" type="fcab9f18:XcodeViewNode" />
-              <item name="ViewModels" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
               <item name="Pods" type="1d218c8b:XcodeProjectNode" />
             </path>
             <path>
@@ -200,7 +185,7 @@
               <item name="Pods" type="1d218c8b:XcodeProjectNode" />
               <item name="Development Pods" type="fcab9f18:XcodeViewNode" />
               <item name="NMDEF.Base" type="fcab9f18:XcodeViewNode" />
-              <item name="Settings" type="fcab9f18:XcodeViewNode" />
+              <item name="Flow" type="fcab9f18:XcodeViewNode" />
             </path>
           </expand>
           <select />
@@ -397,6 +382,8 @@
       <workItem from="1554469771585" duration="700000" />
       <workItem from="1554470821813" duration="133000" />
       <workItem from="1554724356394" duration="171000" />
+      <workItem from="1554819996085" duration="661000" />
+      <workItem from="1554970628353" duration="769000" />
     </task>
     <task id="LOCAL-00001" summary="Add example file sturcture and menu view controller">
       <created>1550075835476</created>
@@ -412,11 +399,18 @@
       <option name="project" value="LOCAL" />
       <updated>1550144810283</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Settings finish">
+      <created>1554820331559</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554820331559</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244909000" />
+    <option name="totallyTimeSpent" value="246339000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -428,10 +422,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="981" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="981" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3003663" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31135532" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -443,7 +437,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946752" weight="0.32174888" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.26771653" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.26771653" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3277405" />
       <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.44431946" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5005325" weight="0.32170978" />
@@ -512,7 +506,8 @@
     <MESSAGE value="Add example file sturcture and menu view controller" />
     <MESSAGE value="Working navigation example, new single page root flow added." />
     <MESSAGE value="BaseViewModel Rx events" />
-    <option name="LAST_COMMIT_MESSAGE" value="BaseViewModel Rx events" />
+    <MESSAGE value="Settings finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Settings finish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -580,34 +575,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/Swift/Protocols.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Settings/BaseSettingsProtocol.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/Swift/Misc.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="325" column="17" selection-start-line="325" selection-start-column="17" selection-end-line="325" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10B61/4.2.1/arm64/iphoneos12.1/Foundation/Foundation.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="3988" column="14" selection-start-line="3988" selection-start-column="14" selection-end-line="3988" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NMDEF.Base/Views/Nav1ViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -876,13 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Common/BaseAppDelegate.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pods/Swinject/Sources/Container.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -911,6 +871,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NMDEF.Base/ViewModels/Nav2ViewModel.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
@@ -928,10 +895,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Podfile">
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Extensions/AuthServices+MoyaTargetTypeImplementation.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="-19" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Common/BaseAppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/BaseFlow.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/FlowWithSinglePageRoot.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../NMDEF.Base/Classes/Flow/FlowWithNavigationRoot.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-312">
+          <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
         </state>
       </provider>
     </entry>
