@@ -32,4 +32,10 @@ public class UserAuthContext: Codable {
         self.userIdentifier = userIdentifier
         self.password = password
     }
+
+    public init(userIdentifier: String, password: String, config: Configuration) {
+        self.userIdentifier = userIdentifier
+        self.password = password
+        self.selectedConfig = config
+    }
 }

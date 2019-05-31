@@ -8,7 +8,7 @@ public class Configuration: Codable {
 
     public var id: Int
 
-    init(name: String, id: Int) {
+    public init(name: String, id: Int) {
         self.name = name
         self.id = id
     }
