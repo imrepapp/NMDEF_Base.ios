@@ -9,7 +9,6 @@ public protocol BaseSettingsProtocol: BaseSettingsConstants, BaseSettingsVariabl
 }
 
 public protocol BaseSettingsConstants {
-    var apiUrl: String { get }
     var dataProviderUrl: String { get }
     var appName: String { get }
     var appVersion: String { get }
@@ -18,6 +17,7 @@ public protocol BaseSettingsConstants {
 }
 
 public protocol BaseSettingsVariables {
+    var apiUrl: String { get set }
     var userAuthContext: UserAuthContext? { get set }
     var autoLoginEnabled: Bool { get set }
     var rememberMe: Bool { get set }

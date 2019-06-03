@@ -11,17 +11,26 @@ open class BaseSettings: BaseSettingsProtocol {
         case AUTO_LOGIN_ENABLED
         case REMEMBER_ME
         case SYNC_CONFIG
+        case API_URL
     }
 
-    open var apiUrl: String {
-        fatalError("API url not defined.")
+    public var apiUrl: String {
+        get {
+            return loadPrimitive(Keys.API_URL, default: defaults.apiUrl)
+        }
+        set {
+            storePrimitive(Keys.API_URL, value: newValue)
+        }
     }
+
     open var dataProviderUrl: String {
         fatalError("dataprovider url not defined.")
     }
+
     public var appName: String {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as! String
     }
+
     open var splashMaxTimoutSec: Int {
         fatalError("max splash timeout is not defined.")
     }
@@ -48,6 +57,7 @@ open class BaseSettings: BaseSettingsProtocol {
             storeObject(Keys.USER_AUTH_CONTEXT, value: newValue)
         }
     }
+
     public var autoLoginEnabled: Bool {
         get {
             return loadPrimitive(Keys.AUTO_LOGIN_ENABLED, default: defaults.autoLoginEnabled)
@@ -55,8 +65,8 @@ open class BaseSettings: BaseSettingsProtocol {
         set {
             storePrimitive(Keys.AUTO_LOGIN_ENABLED, value: newValue)
         }
-
     }
+
     public var rememberMe: Bool {
         get {
             return loadPrimitive(Keys.REMEMBER_ME, default: defaults.rememberMe)
@@ -64,8 +74,8 @@ open class BaseSettings: BaseSettingsProtocol {
         set {
             storePrimitive(Keys.REMEMBER_ME, value: newValue)
         }
-
     }
+
     public var syncConfig: SynchronizationConfig {
         get {
             return loadObject(Keys.SYNC_CONFIG, default: defaults.syncConfig)
