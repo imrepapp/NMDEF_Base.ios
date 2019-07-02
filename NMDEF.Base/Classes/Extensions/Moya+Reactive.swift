@@ -32,7 +32,12 @@ public extension Reactive where Base: MoyaProviderType {
             let cancellableToken = self.base.request(target, callbackQueue: callbackQueue, progress: nil) { result in
                 switch result {
                 case let .success(response):
-                    completable(.completed)
+                    if let r = response as? Response, r.statusCode != 200  {
+                        completable(.error(MoyaError.statusCode(r)))
+                    }
+                    else {
+                        completable(.completed)
+                    }
                 case let .failure(error):
                     completable(.error(error))
                 }
